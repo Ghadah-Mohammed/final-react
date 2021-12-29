@@ -1,14 +1,14 @@
 import axios from "axios"
 import EngineerContext from "./Utils/EngineerContext"
 import Navbar from "./components/Navbar"
-import Home from "./page.js/Home"
+import Home from "./pages/Home"
 import { toast } from "react-toastify"
 import { ToastContainer } from "react-bootstrap"
 import { Route, Routes } from "react-router-dom"
 
 function App() {
   return(
-    <>
+    
     
     <EngineerContext.Provider>
       
@@ -17,7 +17,7 @@ function App() {
     <Route  path="/" element={<Home />}></Route>
     </Routes>
    </EngineerContext.Provider>
-   </>
+  
   )
 
   
