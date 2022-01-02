@@ -2,16 +2,17 @@ import { Container, Row } from "react-bootstrap"
 import AllCompany from "../components/AllCompany"
 import CompanyList from "../components/CompanyList"
 import Showcase from "../components/Showcase"
-
+import CarouselItem from "../components/CarouselItem"
 function Home() {
   return (
     <>
-      <Container>
+      {/* <CarouselItem /> */}
+      <section className="onshowcase">
         <Showcase />
-        <Row>
-          <AllCompany />
-        </Row>
-      </Container>
+      </section>
+      <Container>
+        <AllCompany />
+        </Container>
     </>
   )
 }
