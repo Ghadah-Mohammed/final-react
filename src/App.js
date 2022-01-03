@@ -81,6 +81,23 @@ function App() {
     console.log("logout success")
   }
 
+  const likeProject = async projectId => {
+    console.log(projectId)
+    try {
+      const response = await axios.get(`http://localhost:5000/api/project/${projectId}/likes`, {
+        headers: {
+          Authorization: localStorage.tokenEngineer,
+        },
+      })
+      getCompanies()
+      getProfile()
+      toast.success(response.data)
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
   useEffect(() => {
     getCompanies()
     if (localStorage.tokenEngineer) getProfile()
@@ -92,6 +109,7 @@ function App() {
     login,
     logout,
     profile,
+    likeProject,
   }
 
   return (

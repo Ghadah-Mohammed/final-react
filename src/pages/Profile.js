@@ -1,9 +1,9 @@
 import { useContext } from "react"
 import { Col, Row } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
-
+import CompanyItem from "../components/CompanyItem"
 function Profile() {
-  const { profile } = useContext(EngineerContext)
+  const { profile, companies} = useContext(EngineerContext)
   if (!profile) return <h1>Loading...</h1>
   return (
     <>
@@ -27,15 +27,15 @@ function Profile() {
             {profile.firstName}
             {profile.lastName}
           </h1>
-          <p>{profile.email}</p>
           {/* <p className="text-muted">{}</p> */}
         </Col>
       </Row>
-      {/* <Row>
-          {profile.likes.map(project=>(
-              <CpmpanyItem project={project}key={project._id}/> 
-          ))}
-      </Row> */}
+      <Row className="mt-5">
+        <h3>Favourite projects</h3>
+        {profile.like.map(project => (
+          <CompanyItem project={project} key={project._id} />
+        ))}
+      </Row>
     </>
   )
 }

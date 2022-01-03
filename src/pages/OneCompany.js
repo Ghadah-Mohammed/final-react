@@ -2,14 +2,18 @@ import { useContext } from "react"
 import { Button, Card, Row, Col, Container, ListGroup } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 
 function OneCompany() {
   const { companyId } = useParams()
-  const { companies } = useContext(EngineerContext)
+  const { companies, likeProject, profile } = useContext(EngineerContext)
   if (companies.length === 0) return <h1>Loading...</h1>
   const company = companies.find(company => company._id === companyId)
   console.log(company.project)
+
+  let liked = false
+  if (profile) liked = profile.likes.includes(profile._id)
   return (
     <>
       {/* linear-gradient(rgba(0,0,0,0.8), */}
@@ -53,6 +57,11 @@ function OneCompany() {
                   <Card.Text>Some quick example text to build on</Card.Text>
                 </Card.Body>
               </Card>
+              <Col>
+                <Button variant="dark" className="ms-3" onClick={() => likeProject(project1._id)}>
+                  {liked ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
+                </Button>
+              </Col>
             </>
           </Col>
         ))}

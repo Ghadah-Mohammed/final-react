@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 function CompanyItem(props) {
   const { company } = props
+
+  
   return (
     <>
       <Card border="light" style={{ maxWidth: "350px", margin: "28px" ,border:"12px" }} className="companyitem">
