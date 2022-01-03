@@ -1,20 +1,72 @@
-.allcompany {
-  
+* {
+    box-sizing: border-box;
 }
 
-.companyitem {
-    margin-top: 100%;
-    border-radius: 30px;
+
+/* signup */
+
+.signupPage {
+    display: flex;
+    /* align-items: center; */
+    /* margin-right: 500px; */
+    margin-top: 30px;
+    margin-left: 500px;
+/* 
+    background-color: rgb(244, 244, 247);
+    border: 1px solid; */
+    width: 600px;
 }
 
-.Navbar{
-   /* background: none; */
-   background-color: transparent;
+
+.signupform {
+    width: 280px;
+    margin: 15px 0px 15px 20px;
+    text-align: center;
+    background-color: rgb(227, 227, 235);
+    padding: 15px;
+    width: 400px;
+
 }
 
-.allcompany.h1{
-    margin-top: 100px;
+.signupform button {
+    border-radius: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(27, 23, 23);
+    background-color: white;
+
+}
+
+.signuparea {
+    width: 280px;
+    margin: 15px 40px 15px 0px;
+    text-align: center;
+    /* background-color: rgb(102, 102, 168); */
+    background: url("./assets/sugnup1.jpg") center/cover;
+    padding: 15px;
+    padding-top: 30%;
+    width: 400px;
+
+}
+
+.signuparea button {
+    border-radius: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(27, 23, 23);
+    background-color: white;
+    text-decoration: none;
+}
+
+/* .bgimg {
+    background: url("https://images.pexels.com/photos/839465/pexels-photo-839465.jpeg?cs=srgb&dl=pexels-freestocksorg-839465.jpg&fm=jpg");
+    height: 100vh;
     
-     
-}
+} */
 
+.signuparea h1{
+    color: whitesmoke;
+}
+.signuparea p{
+    color: whitesmoke;
+}

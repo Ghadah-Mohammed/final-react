@@ -5,8 +5,8 @@ import EngineerContext from "../Utils/EngineerContext"
 function SignUp() {
   const { signup } = useContext(EngineerContext)
   return (
+    
     <>
-      
       <div className="signupPage">
         <section className="signupform">
           <h1>Sign Up</h1>
@@ -30,15 +30,17 @@ function SignUp() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Photo</Form.Label>
-              <Form.Control required type="url" name="photo" placeholder="Photo" />
+              <Form.Control required type="url" name="avatar" placeholder="Photo" />
             </Form.Group>
             <button required type="submit">
               Sign
             </button>
           </Form>
         </section>
-        <section className="signuparea">
-          <div style={{ height: "40%" }}>
+        {/* className={Style.bgimg} */}
+        <section className="signuparea" >
+
+          <div  style={{ height: "40%" ,textDecoration:"none"}}>
             <h1>Hello, Friend!</h1>
             <p>Enter your personal details and join us!</p>
             <button>
@@ -47,8 +49,11 @@ function SignUp() {
             </button>
           </div>
         </section>
+        
       </div>
+      
     </>
+    
   )
 }
 

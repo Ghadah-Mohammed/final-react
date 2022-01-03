@@ -10,14 +10,15 @@ function Showcase() {
       
         <video
           className={styles.video4}
-          // style={{
-          //   // pointerEvents: "relative",
-          //   position: "relative",
+          style={{
+           
+            // pointerEvents: "relative",
+            // position: "relative",
           //   top: "0",
-          //   objectFit: "cover",
+            // objectFit: "cover",
           //   left: "0",
           //   width: "100%",
-          // }}
+          }}
           src={video4}
           autoPlay
           muted
