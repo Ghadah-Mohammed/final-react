@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Button, Card, Row, Col, Container } from "react-bootstrap"
+import { Button, Card, Row, Col, Container, ListGroup } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import EngineerContext from "../Utils/EngineerContext"
@@ -52,17 +52,22 @@ function OneCompany() {
                 <Card.Body>
                   <Card.Text>Some quick example text to build on</Card.Text>
                 </Card.Body>
-                <Card.Title style={{ margin: "15px" }}>Comments</Card.Title>{" "}
-                <Row>
-                  {project1.comment.map(comment1 => (
-                    <Col>
-                      <p>{comment1.comment} </p>
-                    </Col>
-                  ))}
-                </Row>
               </Card>
             </>
           </Col>
+        ))}
+      </Row>
+
+      <Row>
+        <h2>Comments</h2>
+        {company.comment.map(comment1 => (
+          <ListGroup>
+            <ListGroup.Item>
+              <h6>{comment1.owner.firstName}</h6>
+              <img src={comment1.owner.avatar} width="100px" height="100px" />
+              {comment1.comment}
+            </ListGroup.Item>
+          </ListGroup>
         ))}
       </Row>
     </>
