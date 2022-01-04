@@ -12,6 +12,9 @@ function NavbarItem() {
             Companies
           </Link>
         </Navbar.Brand>
+        <Link to="/projects" style={{ textDecoration: "none", color: "black" }}>
+            Projects
+          </Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           {localStorage.tokenEngineer ? (

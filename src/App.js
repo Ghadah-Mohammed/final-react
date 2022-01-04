@@ -2,8 +2,7 @@ import axios from "axios"
 import EngineerContext from "./Utils/EngineerContext"
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
-import { toast } from "react-toastify"
-import { ToastContainer } from "react-bootstrap"
+import { ToastContainer, toast } from "react-toastify"
 import { Route, Routes, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import OneCompany from "./pages/OneCompany"
@@ -12,12 +11,17 @@ import "./App.css"
 import SignUp from "./pages/Signup"
 import Login from "./pages/Login"
 import Profile from "./pages/Profile"
+import Project from "./pages/Project"
+import OneProject from "./pages/OneProject"
+import AllProject from "./components/AllProject"
 
 function App() {
   const [companies, setCompanies] = useState([])
   const [profile, setProfile] = useState(null)
+  const [projects, setProjects] = useState([])
   const navigate = useNavigate()
 
+  //getCompanies
   const getCompanies = async () => {
     const response = await axios("http://localhost:5000/api/company/verifiedCompanies")
     console.log(response.data)
@@ -35,6 +39,14 @@ function App() {
     console.log(response.data)
   }
 
+  //get project
+  const getProjects = async () => {
+    const response = await axios("http://localhost:5000/api/project")
+    setProjects(response.data)
+    console.log(response.data)
+  }
+
+  //signup
   const signup = async e => {
     e.preventDefault()
     try {
@@ -56,6 +68,7 @@ function App() {
     }
   }
 
+  //login
   const login = async e => {
     e.preventDefault()
     try {
@@ -76,11 +89,13 @@ function App() {
     }
   }
 
+  //logout
   const logout = () => {
     localStorage.removeItem("tokenEngineer")
     console.log("logout success")
   }
 
+  //likeProject
   const likeProject = async projectId => {
     console.log(projectId)
     try {
@@ -100,6 +115,7 @@ function App() {
 
   useEffect(() => {
     getCompanies()
+    getProjects()
     if (localStorage.tokenEngineer) getProfile()
   }, [])
 
@@ -110,6 +126,7 @@ function App() {
     logout,
     profile,
     likeProject,
+    projects,
   }
 
   return (
@@ -124,6 +141,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/projects" element={<AllProject />} />
+          <Route path="/project/:projectId" element={<OneProject />} />
         </Routes>
       </EngineerContext.Provider>
     </>

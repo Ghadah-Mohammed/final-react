@@ -8,12 +8,16 @@ import EngineerContext from "../Utils/EngineerContext"
 function OneCompany() {
   const { companyId } = useParams()
   const { companies, likeProject, profile } = useContext(EngineerContext)
-  if (companies.length === 0) return <h1>Loading...</h1>
+  if (companies.length === 0 && profile.length === 0) return <h1>Loading...</h1>
   const company = companies.find(company => company._id === companyId)
   console.log(company.project)
-
+  console.log(profile.likes)
   let liked = false
-  if (profile) liked = profile.likes.includes(profile._id)
+  if (profile)
+    liked = profile.likes.map(like => {
+   
+    })
+  console.log(liked)
   return (
     <>
       {/* linear-gradient(rgba(0,0,0,0.8), */}
@@ -47,11 +51,13 @@ function OneCompany() {
           <Col>
             <>
               <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}>
+                <Link to={`/project/${project1._id}`}></Link>
                 <Card.Img
                   variant="top"
                   src={project1.photo}
                   style={{ height: "400px", width: "400px", objectFit: "cover" }}
                 />
+                <Link to={`/project/${project1._id}`}></Link>
                 <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title>
                 <Card.Body>
                   <Card.Text>Some quick example text to build on</Card.Text>
@@ -67,7 +73,7 @@ function OneCompany() {
         ))}
       </Row>
 
-      <Row>
+      <Row style={{ width: "800px" }}>
         <h2>Comments</h2>
         {company.comment.map(comment1 => (
           <ListGroup>
