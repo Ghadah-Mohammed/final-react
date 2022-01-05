@@ -40,11 +40,11 @@ function OneProject() {
         </Col>
       </Row>
       <Row>
-        <Col md="8" className="mx-auto" >
+        <Col md="8" className="mx-auto">
           <Carousel>
             {project.photo.map(photo1 => (
               <Carousel.Item>
-                <img className="d-block w-100" style={{height:"600px"}} src={photo1} alt="First slide" />
+                <img className="d-block w-100" style={{ height: "600px" }} src={photo1} alt="First slide" />
               </Carousel.Item>
             ))}
           </Carousel>
@@ -56,7 +56,7 @@ function OneProject() {
       <Row mx-auto>
         <Col>
           <>
-            <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}>
+            <Card style={{  border: "12px", margin: "300px 40px 20px 40px" }}>
               <Link to={`/project/${project._id}`}></Link>
               <Card.Img
                 variant="top"
