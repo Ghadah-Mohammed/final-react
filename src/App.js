@@ -28,7 +28,7 @@ function App() {
     setCompanies(response.data)
   }
 
-  //get profile
+  //get profile user
   const getProfile = async () => {
     const response = await axios.get("http://localhost:5000/api/auth/getprofile", {
       headers: {
@@ -39,6 +39,28 @@ function App() {
     console.log(response.data)
   }
 
+  //edit profile user
+  const editProfileUser = async e => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const userBody = {
+        firstName: form.elements.firstName.value,
+        lastName: form.elements.lastName.value,
+        password: form.elements.password.value,
+        avatar: form.elements.avatar.value,
+      }
+      await axios.put(`http://localhost:5000/api/auth/profile`, userBody, {
+        headers: {
+          Authorization: localStorage.tokenEngineer,
+        },
+      })
+      getProfile()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
   //get project
   const getProjects = async () => {
     const response = await axios("http://localhost:5000/api/project")
@@ -113,6 +135,41 @@ function App() {
     }
   }
 
+  //add comment
+  const addComment = async (e, companyId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const commentBody = {
+        comment: form.elements.comment.value,
+      }
+
+      form.reset()
+      await axios.post(`http://localhost:5000/api/company/${companyId}/comments`, commentBody, {
+        headers: {
+          Authorization: localStorage.tokenEngineer,
+        },
+      })
+
+      getCompanies()
+      toast.success("Comment added")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //delet comment
+  const deleteComment=async (companyId, commentId)=>{
+    console.log("hhh");
+    await axios.delete(`http://localhost:5000/api/company/${companyId}/comments/${commentId}`,{
+    headers:{
+      Authorization:localStorage.tokenEngineer
+    },
+  })
+  getCompanies()
+
+  }
   useEffect(() => {
     getCompanies()
     getProjects()
@@ -127,6 +184,9 @@ function App() {
     profile,
     likeProject,
     projects,
+    addComment,
+    editProfileUser,
+    deleteComment,
   }
 
   return (

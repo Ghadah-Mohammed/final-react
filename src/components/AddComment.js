@@ -1,21 +1,33 @@
-function AddComment() {
-    return (<>
-    <section className="signupform pt-5">
-          <Form onSubmit={login} style={{ height: "300px" }}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Add Comment</Form.Label>
-              <Form.Control type="email" name="email" placeholder="Enter email" />
-            </Form.Group>
+import { useContext } from "react";
+import { Button, Col, Form ,Row } from "react-bootstrap";
+import EngineerContext from "../Utils/EngineerContext";
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name="password" placeholder="Password" />
-            </Form.Group>
-            <button type="submit">Login!</button>
-          </Form>
-        </section>
-    
-    </>  );
-}
+
+function AddComment(props) {
+  const {addComment}=useContext(EngineerContext)
+  const {companyId}=props
+    return (
+      <div className="ms-4">
+        <h1>Add Comment</h1>
+        <Form className="mt-5" onSubmit={e => addComment(e, companyId)}>
+          <Form.Group as={Row} className="mb-3">
+            <Form.Label column md="2">
+              Comment
+            </Form.Label>
+            <Col md="6">
+              <Form.Control as="textarea" name="comment" required />
+            </Col>
+          </Form.Group>
+  
+          <Form.Group as={Row} className="my-4">
+            <Col md={{ span: 10, offset: 2 }}>
+              <Button type="submit">Add</Button>
+            </Col>
+          </Form.Group>
+        </Form>
+      </div>
+    )
+  }
+  
 
 export default AddComment;
