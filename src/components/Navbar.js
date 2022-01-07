@@ -4,6 +4,7 @@ import EngineerContext from "../Utils/EngineerContext"
 import { Link } from "react-router-dom"
 function NavbarItem() {
   const { logout } = useContext(EngineerContext)
+
   return (
     <Navbar>
       <Container>
@@ -17,7 +18,7 @@ function NavbarItem() {
           </Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          {localStorage.tokenEngineer ? (
+          {localStorage.tokenEngineer || localStorage.tokenCompany ? (
             <Nav className="ms-auto">
               <Link className="nav-link" to="/profile">
                 Profile
@@ -27,6 +28,7 @@ function NavbarItem() {
               </Link>
             </Nav>
           ) : (
+            
             <Nav className="ms-auto">
               <Link className="nav-link" to="/login">
                 Login
@@ -37,6 +39,7 @@ function NavbarItem() {
             </Nav>
           )}
         </Navbar.Collapse>
+          
       </Container>
     </Navbar>
   )

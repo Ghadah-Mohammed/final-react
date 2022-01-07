@@ -2,21 +2,17 @@ import { useContext } from "react"
 import { Form, Button } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
 
-function SignUp() {
-  const { signup } = useContext(EngineerContext)
+function SignUpcompany() {
+  const { signupcompany } = useContext(EngineerContext)
   return (
     <>
       <div className="signupPage">
         <section className="signupform">
-          <h1>Sign Up as user</h1>
-          <Form onSubmit={signup}>
+          <h1>Sign Up as Company</h1>
+          <Form onSubmit={signupcompany}>
             <Form.Group className="mb-3">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control required type="text" name="firstName" placeholder="Enter your First Name" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control required type="text" name="lastName" placeholder="Enter your last name " />
+              <Form.Label>Name Company</Form.Label>
+              <Form.Control required type="text" name="name" placeholder="Enter your First Name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -39,11 +35,11 @@ function SignUp() {
         {/* className={Style.bgimg} */}
         <section className="signuparea">
           <div style={{ height: "40%", textDecoration: "none" }}>
-            <h1>sign Up as Company</h1>
-            <p>Enter your Company details and join us!</p>
+            <h1>signup as User</h1>
+            <p>Enter your personal details and join us!</p>
             <button>
               {" "}
-              <a href="/signupcompany">Sign </a>
+              <a href="/signup">sign </a>
             </button>
           </div>
         </section>
@@ -52,4 +48,4 @@ function SignUp() {
   )
 }
 
-export default SignUp
+export default SignUpcompany

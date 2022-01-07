@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import ProjectItem from "../components/ProjectItem"
 import UserEditModal from "../components/UserEditModel"
 
-function Profile() {
+function ProfileUser() {
   const { profile, companies } = useContext(EngineerContext)
   const [show, setShow] = useState(false)
   if (!profile) return <h1>Loading...</h1>
@@ -38,4 +38,4 @@ function Profile() {
   )
 }
 
-export default Profile
+export default ProfileUser

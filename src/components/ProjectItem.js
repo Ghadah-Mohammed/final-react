@@ -6,8 +6,10 @@ import EngineerContext from "../Utils/EngineerContext"
 
 function ProjectItem(props) {
   const { project } = props
-  const { likeProject, profile, projects } = useContext(EngineerContext)
-  if (!profile) return <h1>Loading...</h1>
+  const { likeProject, profile, projects, profileCompany } = useContext(EngineerContext)
+  if (!profile && !profileCompany) return <h1>Loading...</h1>
+  // if (!profileCompany) return <h1>Loading...</h1>
+
   if (!project) return <h1>Loading...</h1>
 
   return (

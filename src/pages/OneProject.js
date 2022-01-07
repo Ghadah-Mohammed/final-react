@@ -7,12 +7,11 @@ import EngineerContext from "../Utils/EngineerContext"
 
 function OneProject() {
   const { projectId } = useParams()
-  const { projects, likeProject, profile } = useContext(EngineerContext)
-  if (!profile) return <h1>Loading...</h1>
+  const { projects, likeProject, profile, company, profileCompany } = useContext(EngineerContext)
+  if (!profile && !profileCompany) return <h1>Loading...</h1>
   if (projects.length === 0) return <h1>Loading...</h1>
   const project = projects.find(project => project._id === projectId)
 
-  console.log(profile.likes)
   let liked = false
   if (profile) liked = profile.likes.includes(profile._id)
 
@@ -46,9 +45,11 @@ function OneProject() {
           </Carousel>
         </Col>
       </Row>
-      <Row>
-        <h1>{project.companyId?.name}</h1>
-      </Row>
+      <Link to={`/company/${project.companyId._id}`}>
+        <Row>
+          <h1>{project.companyId?.name}</h1>
+        </Row>
+      </Link>
       <Col>
         <h1>{project.name}</h1>
         <p className="text-muted">{project.description}</p>

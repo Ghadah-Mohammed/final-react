@@ -2,21 +2,23 @@ import { useContext } from "react"
 import { Form, Button } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
 
-function Logincompany() {
-  const { login, logincompany } = useContext(EngineerContext)
+function Login() {
+  const { logincompany } = useContext(EngineerContext)
   return (
     <>
       <div className="signupPage login">
         <section className="signuparea pt-5" style={{ height: "300px" }}>
-          <h1>login as company</h1>
+          <h1>login as user</h1>
+          <p>Enter your personal details and join us!</p>
           <button>
             {" "}
-            <a href="/logincompany">Login Now! </a>
+            <a href="/login">Log in Now! </a>
+           
           </button>
         </section>
         <section className="signupform pt-5">
-          <Form onSubmit={login} style={{ height: "300px" }}>
-            <h1>Log in as User</h1>
+          <Form onSubmit={logincompany} style={{ height: "300px" }}>
+            <h1>login as company</h1>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" name="email" placeholder="Enter email" />
@@ -34,4 +36,4 @@ function Logincompany() {
   )
 }
 
-export default Logincompany
+export default Login

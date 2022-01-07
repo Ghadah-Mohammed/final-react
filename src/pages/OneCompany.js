@@ -9,13 +9,15 @@ import AddComment from "../components/AddComment"
 function OneCompany() {
   const { deleteComment } = useContext(EngineerContext)
   const { companyId } = useParams()
-  const { companies, likeProject, profile } = useContext(EngineerContext)
-  if (companies.length === 0 && profile.length === 0) return <h1>Loading...</h1>
+  const { companies, likeProject, profile, profileCompany } = useContext(EngineerContext)
+  if (companies.length === 0) return <h1>Loading...</h1>
+  if (!profile && !profileCompany) return <h1>Loading...</h1>
   const company = companies.find(company => company._id === companyId)
-  console.log(company.project)
-  console.log(profile.likes)
+
   let liked = false
   if (profile) liked = profile.likes.map(like => {})
+  // if (profileCompany) liked = profileCompany.likes.map(like => {})
+
   console.log(liked)
   return (
     <>
@@ -100,11 +102,11 @@ function OneCompany() {
               {comment1.comment}
 
               <span>
-                {comment1.owner._id == profile._id ? (
-                  <Button variant="danger" onClick={() => deleteComment(companyId, comment1._id)}>
-                    delete
-                  </Button>
-                ) : null}
+                {/* {comment1.owner._id == profile._id ? ( */}
+                <Button variant="danger" onClick={() => deleteComment(companyId, comment1._id)}>
+                  delete
+                </Button>
+                {/* ) : null} */}
               </span>
             </ListGroup.Item>
           </ListGroup>
