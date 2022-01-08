@@ -15,7 +15,7 @@ function Project() {
         {projects.map(project1 => (
           <Col>
             <>
-              <Card style={{ borderRadius: "20px", border: "12px", margin: "300px 40px 20px 40px" }}>
+              <Card  className="zoom" style={{ borderRadius: "20px", border: "12px", margin: "300px 40px 20px 40px" }}>
                 <Link to={`/project/${project1._id}`}></Link>
                 <Card.Img
                   variant="top"

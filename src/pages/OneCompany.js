@@ -34,7 +34,12 @@ function OneCompany() {
         }}
       >
         <Col md="4">
-          <img variant="top" src={company.avatar} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
+          <img
+            variant="top"
+            src={company.avatar}
+            width="100%"
+            style={{ borderRadius: "10px", margin: "20px" }}
+          />
         </Col>
         <Col>
           <h1>{company.name}</h1>
@@ -52,14 +57,14 @@ function OneCompany() {
           <Col>
             <>
               <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}>
-                <Link to={`/engineer/${engineer1._id}`}>
-                  <Card.Img
-                    variant="top"
-                    src={engineer1.photo}
-                    style={{ height: "400px", width: "400px", objectFit: "cover" }}
-                  />
-                  <Card.Title style={{ margin: "15px" }}>{engineer1.name}</Card.Title>
-                </Link>
+                {/* <Link to={`/engineer/${engineer1._id}`}> */}
+                <Card.Img
+                  variant="top"
+                  src={engineer1.photo}
+                  style={{ height: "400px", width: "400px", objectFit: "cover" }}
+                />
+                <Card.Title style={{ margin: "15px" }}>{engineer1.name}</Card.Title>
+                {/* </Link> */}
               </Card>
             </>
           </Col>

@@ -1,30 +1,32 @@
 import { useContext } from "react"
 import { Col, Form, Row, Button } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
-import video4 from "../assets/video4.mp4"
+import video4 from "../assets/vidow6.mp4"
 import photo3 from "../assets/photo3.jpg"
 import styles from "./SectionOne.module.css"
 function Showcase() {
   return (
     <>
-      
+    <div className="contain">
+      <div className="title">
+      <h1>jhhjbhjhjbhjbhbhjbhjbhjb</h1>
+      <p>jbhbhbhbhjbhubgvgvg v g v</p>
+      </div>
         <video
           className={styles.video4}
           style={{
+            position:"relative",
+            width:"100%",
+            height:"20%",
            
-            // pointerEvents: "relative",
-            // position: "relative",
-          //   top: "0",
-            // objectFit: "cover",
-          //   left: "0",
-          //   width: "100%",
           }}
           src={video4}
           autoPlay
           muted
           loop
         ></video>
-     
+        <div className="overlay"></div>
+     </div>
 
       {/* <Col
         style={{

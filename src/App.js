@@ -230,7 +230,7 @@ function App() {
       form.reset()
       await axios.post(`http://localhost:5000/api/company/${companyId}/comments`, commentBody, {
         headers: {
-          Authorization: localStorage.tokenEngineer,
+        Authorization: localStorage.tokenEngineer,
         },
       })
 
