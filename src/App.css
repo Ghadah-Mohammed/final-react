@@ -148,6 +148,51 @@ img:hover {
 
 
 /* edit card */
-.companyitem{
+.companyCard :hover{
+    /* background-color:rgba(63, 62, 62, 0.911); */
+    color: white;
+   transform: scale(1.03);
+transition: all 1s ease;
+    
+    /* transition: 0.1s;
+transform: scale(1.1); */
+
+}
+.companyCard{
    
 }
+
+
+/* .companyCard{
+display: flex;
+justify-content: center;
+} */
+
+
+.header{
+    margin-top: 80px;
+    margin-left: 60px;
+    color: rgba(44, 44, 46, 0.904);
+
+}
+
+.buttonAllproject{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+.footer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: rgba(82, 76, 76, 0.5);
+    color: white;
+    text-align: center;
+    /* color: rgb(218, 143, 109); */
+}
+

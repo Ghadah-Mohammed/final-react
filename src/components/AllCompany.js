@@ -2,15 +2,22 @@ import { useContext } from "react"
 import { Row } from "react-bootstrap"
 import CompanyItem from "./CompanyItem"
 import EngineerContext from "../Utils/EngineerContext"
+import { Link } from "react-router-dom"
 
 function AllCompany() {
   const { companies } = useContext(EngineerContext)
   return (
     <>
-    
-      <div className="allcompany  mt-5 " style={{ height: "100vh" }}>
-        <h4>Explor Company</h4>
-        <h2>all companies</h2>
+    <div className="header">
+    <h1 style={{fontSize:"50px",fontFamily:"-moz-initial"}}>You can send a request to any company to do your project</h1>
+    <div className="buttonAllproject">
+    <Link to={`/projects`}>
+    <button style={{borderRadius:"40px",padding:"15px",color:"white",backgroundColor:"black",borderColor:"black" ,textAlign:"center",fontSize:"25px" ,justifyContent:"center",fontFamily:"inherit"}}>See All Projects</button>
+    </Link>
+    </div>
+    </div>
+      <div className="allcompany" style={{ height: "300vh" ,marginTop:"100px",marginLeft:"20px",fontSize:"30px"}}>
+        <h4 style={{fontFamily:"-moz-initial",fontSize:"35px"}}>Explor Company</h4>
 
         <Row>
            

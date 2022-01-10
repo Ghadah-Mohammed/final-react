@@ -18,8 +18,7 @@ function ProfileUser() {
       <Col>
         <p>{profile.email}</p>
         <h1>
-          {profile.firstName}
-          {profile.lastName}
+          {profile.firstName} {profile.lastName}
         </h1>
         <Button variant="info" className="me-2" onClick={() => setShow(true)}>
           Edit

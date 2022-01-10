@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Form, Button } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
 
-function Logincompany() {
+function LoginUser() {
   const { login, logincompany } = useContext(EngineerContext)
   return (
     <>
@@ -34,4 +34,4 @@ function Logincompany() {
   )
 }
 
-export default Logincompany
+export default LoginUser

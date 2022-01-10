@@ -3,7 +3,7 @@ import EngineerContext from "./Utils/EngineerContext"
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import { ToastContainer, toast } from "react-toastify"
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import OneCompany from "./pages/OneCompany"
 import AllCompany from "./components/AllCompany"
@@ -16,6 +16,8 @@ import OneProject from "./pages/OneProject"
 import AllProject from "./components/AllProject"
 import SignUpCompany from "./pages/SignupCompany"
 import LoginCompany from "./pages/LoginCompany"
+import Footer from "./components/Footer"
+import ProfileCompany from "./pages/ProfileCompany"
 function App() {
   const [companies, setCompanies] = useState([])
   const [profile, setProfile] = useState(null)
@@ -29,6 +31,13 @@ function App() {
     console.log(response.data)
     setCompanies(response.data)
   }
+
+  useEffect(() => {
+    getCompanies()
+    getProjects()
+    if (localStorage.tokenEngineer) getProfile()
+    if (localStorage.tokenCompany) getProfileCompany()
+  }, [])
 
   //get profile user
   const getProfile = async () => {
@@ -115,8 +124,7 @@ function App() {
 
   //logout
   const logout = () => {
-    localStorage.removeItem("tokenEngineer")
-    localStorage.removeItem("tokenCompany")
+    localStorage.clear()
     console.log("logout success")
   }
 
@@ -156,13 +164,14 @@ function App() {
       console.log("login success")
 
       navigate("/")
+      getProfileCompany()
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
     }
   }
 
-  //
+  //logout
   const logoutcompany = () => {
     localStorage.removeItem("token")
     console.log("logout success")
@@ -176,7 +185,31 @@ function App() {
       },
     })
     setprofileCompany(response.data)
+    console.log(profileCompany)
     console.log(response.data)
+  }
+
+  //edit profile company
+  const editProfileCompany = async e => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const userBody = {
+        name: form.elements.name.value,
+        password: form.elements.password.value,
+        avatar: form.elements.avatar.value,
+      }
+      await axios.put(`http://localhost:5000/api/company/profile`, userBody, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      getProfileCompany()
+      console.log("hhh")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
   }
 
   //likeProject
@@ -218,6 +251,30 @@ function App() {
     }
   }
 
+  //edit Project
+
+  const editProject = async (e, projectId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const projectBody = {
+        name: form.elements.name.value,
+        photo: form.elements.photo.value,
+        password: form.elements.password.value,
+      }
+      await axios.put(`http://localhost:5000/api/project/${projectId}`, projectBody, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      getProfile()
+      toast.success("edit success")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
   //add comment
   const addComment = async (e, companyId) => {
     e.preventDefault()
@@ -230,7 +287,7 @@ function App() {
       form.reset()
       await axios.post(`http://localhost:5000/api/company/${companyId}/comments`, commentBody, {
         headers: {
-        Authorization: localStorage.tokenEngineer,
+          Authorization: localStorage.tokenEngineer,
         },
       })
 
@@ -252,12 +309,6 @@ function App() {
     })
     getCompanies()
   }
-  useEffect(() => {
-    getCompanies()
-    getProjects()
-    if (localStorage.tokenEngineer) getProfile()
-    if (localStorage.tokenCompany) getProfileCompany()
-  }, [])
 
   const store = {
     companies,
@@ -275,6 +326,8 @@ function App() {
     profileCompany,
     logoutcompany,
     addProject,
+    editProfileCompany,
+    editProject,
   }
 
   return (
@@ -288,12 +341,15 @@ function App() {
           <Route path="/company/:companyId" element={<OneCompany />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={localStorage.tokenEngineer ? <ProfileUser /> : null} />
+          <Route path="/profile" element={localStorage.tokenEngineer ? <ProfileUser /> : <ProfileCompany /> }/>
+          {/* <Route path="/profile" element={<ProfileUser />} /> */}
+          {/* <Route path="/profile" element={localStorage.tokenCompany ? <ProfileCompany /> : null} /> */}
           <Route path="/projects" element={<AllProject />} />
           <Route path="/project/:projectId" element={<OneProject />} />
           <Route path="/signupcompany" element={<SignUpCompany />} />
           <Route path="/logincompany" element={<LoginCompany />} />
         </Routes>
+        <Footer />
       </EngineerContext.Provider>
     </>
   )
