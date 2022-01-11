@@ -11,7 +11,7 @@ function Footer() {
       </Col>
       <Col>
         <h6>
-          Made with <FcLike /> ghadah mohammed{" "}
+          Made with <FcLike /> ghadah mohammed
         </h6>
         <h4>About</h4>
         <p>

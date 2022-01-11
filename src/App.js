@@ -190,6 +190,7 @@ function App() {
   }
 
   //edit profile company
+
   const editProfileCompany = async e => {
     e.preventDefault()
     try {
@@ -239,12 +240,17 @@ function App() {
 
       const projectBody = {
         title: form.elements.title.value,
-        description: form.elements.value,
-        photo: form.elements.value,
+        description: form.elements.description.value,
+        photo: [form.elements.photo.value],
       }
       await axios.post(`http://localhost:5000/api/project/add-project`, projectBody, {
-        Authorization: localStorage.tokenCompany,
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
       })
+      getProfileCompany()
+      getProjects()
+      toast.success("add success")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
@@ -258,17 +264,59 @@ function App() {
     try {
       const form = e.target
       const projectBody = {
-        name: form.elements.name.value,
+        title: form.elements.title.value,
         photo: form.elements.photo.value,
-        password: form.elements.password.value,
+        description: form.elements.description.value,
       }
       await axios.put(`http://localhost:5000/api/project/${projectId}`, projectBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
       })
-      getProfile()
+
       toast.success("edit success")
+      getProfileCompany()
+      getProjects()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //delete Project
+  const deleteProject = async projectId => {
+    try {
+      await axios.delete(`http://localhost:5000/api/project/${projectId}`, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      toast.success("project deleted")
+      getProjects()
+      getProfileCompany()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //send offer
+  const sendOffer = async (e, companyId) => {
+    console.log(companyId)
+    e.preventDefault()
+    try {
+      const form = e.target
+      const offerBody = {
+        title: form.elements.title.value,
+        description: form.elements.description.value,
+      }
+      await axios.post(`http://localhost:5000/api/company/${companyId}/sendoffer`, offerBody, {
+        headers: {
+          Authorization: localStorage.tokenEngineer,
+        },
+      })
+
+      toast.success("send offer")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
@@ -328,6 +376,8 @@ function App() {
     addProject,
     editProfileCompany,
     editProject,
+    deleteProject,
+    sendOffer,
   }
 
   return (
@@ -341,7 +391,7 @@ function App() {
           <Route path="/company/:companyId" element={<OneCompany />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={localStorage.tokenEngineer ? <ProfileUser /> : <ProfileCompany /> }/>
+          <Route path="/profile" element={localStorage.tokenEngineer ? <ProfileUser /> : <ProfileCompany />} />
           {/* <Route path="/profile" element={<ProfileUser />} /> */}
           {/* <Route path="/profile" element={localStorage.tokenCompany ? <ProfileCompany /> : null} /> */}
           <Route path="/projects" element={<AllProject />} />

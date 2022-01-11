@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { Button, Card, Row, Col,Image, Container, ListGroup } from "react-bootstrap"
+import { Button, Card, Row, Col, Image, Container, ListGroup } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 import AddComment from "../components/AddComment"
-import {RiDeleteBinLine} from "react-icons/ri"
+import { RiDeleteBinLine } from "react-icons/ri"
 function OneCompany() {
   const { deleteComment } = useContext(EngineerContext)
   const { companyId } = useParams()
@@ -38,7 +38,8 @@ function OneCompany() {
         </Col>
         <Col>
           <h1>{company.name}</h1>
-          <p style={{fontSize:"20px",color:"black"}}>{company.description}</p>
+          <p style={{ fontSize: "20px", color: "black" }}>{company.description}</p>
+          <Button></Button>
           {/* className="text-muted"  */}
         </Col>
       </Row>
@@ -52,16 +53,18 @@ function OneCompany() {
         {company.engineer.map(engineer1 => (
           <Col style={{}}>
             <>
-            <h1 style={{margin:"40px",textAlign:"center"}}>Engineers in this company</h1>
+              <h1 style={{ margin: "40px", textAlign: "center" }}>Engineers in this company</h1>
               {/* <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}> */}
-                {/* <Link to={`/engineer/${engineer1._id}`}> */}
-                <Image
-                  //  variant="top"
-                  src={engineer1.photo}  width="80px" roundedCircle
-                  // style={{ height: "400px", width: "400px", objectFit: "cover" }}
-                />
-                <h6 style={{ margin: "15px" }}> {engineer1.name}</h6>
-                {/* </Link> */}
+              {/* <Link to={`/engineer/${engineer1._id}`}> */}
+              <Image
+                //  variant="top"
+                src={engineer1.photo}
+                width="80px"
+                roundedCircle
+                // style={{ height: "400px", width: "400px", objectFit: "cover" }}
+              />
+              <h6 style={{ margin: "15px" }}> {engineer1.name}</h6>
+              {/* </Link> */}
               {/* </Card> */}
             </>
           </Col>
@@ -78,7 +81,8 @@ function OneCompany() {
                     variant="top"
                     src={project1.photo}
                     style={{ height: "400px", width: "400px", objectFit: "cover" }}
-                    width="80px" roundedCircle
+                    width="80px"
+                    roundedCircle
                   />
                   {/* <Link to={`/project/${project1._id}`}></Link> */}
                   <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title>
@@ -86,15 +90,15 @@ function OneCompany() {
                 </Link>
               </Card>
               <Col>
-              <Button
-                  style={{ backgroundColor: "white", color: "red" ,border:"white" ,fontSize:"px" }}
+                <Button
+                  style={{ backgroundColor: "white", color: "red", fontSize: "px" }}
                   className="ms-3"
                   onClick={() => likeProject(project1._id)}
                 >
                   {profile?.likes.find(like => like._id === project1._id) ? (
-                    <MdFavorite style={{color:`rgb(218, 143, 109)` ,fontSize:"40px"}} />
+                    <MdFavorite style={{ color: `rgb(218, 143, 109)`, fontSize: "40px" }} />
                   ) : (
-                    <MdOutlineFavoriteBorder style={{color:"black" ,fontSize:"40px"}}/>
+                    <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }} />
                   )}
                 </Button>
               </Col>
@@ -104,7 +108,7 @@ function OneCompany() {
       </Row>
 
       <Row style={{ width: "800px" }}>
-        <h2 style={{margin:"2em"}}>Comments</h2>
+        <h2 style={{ margin: "2em" }}>Comments</h2>
         {company.comment.map(comment1 => (
           <ListGroup>
             <ListGroup.Item>
@@ -113,11 +117,15 @@ function OneCompany() {
               {comment1.comment}
 
               <span>
-                {/* {comment1.owner._id == profile._id ? ( */}
-                <Button variant="danger" onClick={() => deleteComment(companyId, comment1._id)} style={{marginLeft:"20px"}}>
-                <RiDeleteBinLine/>
-                </Button>
-                {/* ) : null} */}
+                {comment1.owner?._id == profile?._id ? (
+                  <Button
+                    variant="danger"
+                    onClick={() => deleteComment(companyId, comment1._id)}
+                    style={{ marginLeft: "20px" }}
+                  >
+                    <RiDeleteBinLine />
+                  </Button>
+                ) : null}
               </span>
             </ListGroup.Item>
           </ListGroup>

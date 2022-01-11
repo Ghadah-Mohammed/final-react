@@ -31,6 +31,16 @@ function ProfileUser() {
             ))}
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <h1>Offers </h1>
+            {profile.offers.map(offer => (
+              // <ProjectItem project={project} key={project._id} />
+              <h3>{offer._id}</h3>
+            ))}
+          </Col>
+        </Row>
+
         <UserEditModal show={show} setShow={setShow} user={profile} />
       </Col>
     </>

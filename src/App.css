@@ -48,6 +48,7 @@
     padding: 15px;
     padding-top: 30%;
     width: 400px;
+    
 
 }
 
@@ -150,7 +151,7 @@ img:hover {
 /* edit card */
 .companyCard :hover{
     /* background-color:rgba(63, 62, 62, 0.911); */
-    color: white;
+    /* color: white; */
    transform: scale(1.03);
 transition: all 1s ease;
     
@@ -191,8 +192,17 @@ justify-content: center;
     align-items: center;
     height: 200px;
     background-color: rgba(82, 76, 76, 0.5);
+    /* rgba(82, 76, 76, 0.5); */
     color: white;
     text-align: center;
     /* color: rgb(218, 143, 109); */
 }
+
+.navbarbr.scrolled{
+    background-color: black;
+}
+
+
+
+
 

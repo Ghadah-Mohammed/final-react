@@ -1,12 +1,15 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { Button, Card, Row, Col, Container, ListGroup, Carousel } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
-
+import {BiSend} from "react-icons/bi"
+import { icons } from "react-icons"
+import SendOfferModal from "../components/SendOfferModal"
 function OneProject() {
   const { projectId } = useParams()
+  const [sendshow,setsendshow]=useState(false)
   const { projects, likeProject, profile, company, profileCompany } = useContext(EngineerContext)
   if (!profile && !profileCompany) return <h1>Loading...</h1>
   if (projects.length === 0) return <h1>Loading...</h1>
@@ -53,7 +56,9 @@ function OneProject() {
       <Col>
         <h1>{project.name}</h1>
         <p className="text-muted">{project.description}</p>
+        <Button onClick={()=>setsendshow(true)}> send offer! <BiSend /></Button>
       </Col>
+      <SendOfferModal show={sendshow} setShow={setsendshow} company={project} />
       {/* <Row mx-auto>
         <Col>
           <>

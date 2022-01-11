@@ -1,8 +1,10 @@
-import { Modal } from "react-bootstrap"
+import { useContext } from "react"
+import { Button, Modal } from "react-bootstrap"
+import EngineerContext from "../Utils/EngineerContext"
 
 function ProjectDeleteModal(props) {
-    const { deleteProject } = useContext(ProjectsContext)
-    const { show, setShow, projectId } = props
+    const { deleteProject } = useContext(EngineerContext)
+    const { show, setShow, project } = props
     return (
       <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
@@ -13,7 +15,7 @@ function ProjectDeleteModal(props) {
           <Button variant="secondary" onClick={() => setShow(false)}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={() => deleteProject(projectId)}>
+          <Button variant="danger" onClick={() => deleteProject(project._id)}>
             Confirm
           </Button>
         </Modal.Footer>

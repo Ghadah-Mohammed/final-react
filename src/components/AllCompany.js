@@ -19,7 +19,7 @@ function AllCompany() {
       <div className="allcompany" style={{ height: "300vh" ,marginTop:"100px",marginLeft:"20px",fontSize:"30px"}}>
         <h4 style={{fontFamily:"-moz-initial",fontSize:"35px"}}>Explor Company</h4>
 
-        <Row>
+        <Row md="4" style={{backgroundColor:`rgba(227, 227, 235,1 )`}}>
            
           {companies.map(company => (
             <CompanyItem company={company} key={company._id} />
