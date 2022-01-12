@@ -5,6 +5,7 @@ import CompanyItem from "../components/CompanyItem"
 import { Link } from "react-router-dom"
 import ProjectItem from "../components/ProjectItem"
 import UserEditModal from "../components/UserEditModel"
+import OfferItem from "../components/OfferItem"
 
 function ProfileUser() {
   const { profile, companies } = useContext(EngineerContext)
@@ -34,9 +35,9 @@ function ProfileUser() {
         <Row>
           <Col>
             <h1>Offers </h1>
-            {profile.offers.map(offer => (
+            {profile.offers.map(offer1 => (
               // <ProjectItem project={project} key={project._id} />
-              <h3>{offer._id}</h3>
+              <h1><OfferItem offer={offer1} profile={profile}  /></h1>
             ))}
           </Col>
         </Row>

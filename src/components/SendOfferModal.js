@@ -4,14 +4,14 @@ import EngineerContext from "../Utils/EngineerContext"
 
 function SendOfferModal(props) {
 
-const { show, setShow, company } = props
+const { show, setShow, company , project } = props
 const {sendOffer}=useContext(EngineerContext)
 
-console.log("llll")
+console.log(company)
   return (
     <>
       <Modal show={show} onHide={()=>setShow(false)}>
-        <Form onSubmit={e=>sendOffer(e,company.companyId._id)}>
+        <Form onSubmit={e=>sendOffer(e,company.companyId._id, project._id)}>
           <Modal.Header closeButton>
             <Modal.Title>send offer for this company</Modal.Title>
           </Modal.Header>

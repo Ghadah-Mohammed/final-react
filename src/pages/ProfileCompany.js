@@ -7,11 +7,15 @@ import ProjectEditModal from "../components/ProjectEditModal"
 import ProjectItem from "../components/ProjectItem"
 import CompanyItem from "../components/CompanyItem"
 import OfferItem from "../components/OfferItem"
-function ProfileCompany() {
-  const { profileCompany,companies,company} = useContext(EngineerContext)
+import { useParams } from "react-router-dom"
+function ProfileCompany(props) {
+  const { offerId } = useParams
+  const { offer } = props
+  const { profileCompany, companies, company, progressOffer, refusedOffer, cancel, deleteOffer } =
+    useContext(EngineerContext)
   const [show, setShow] = useState(false)
-  const [addshow,setaddshow]=useState(false)
-  console.log(profileCompany);
+  const [addshow, setaddshow] = useState(false)
+  console.log(profileCompany)
   if (!profileCompany) return <h1>Loading...</h1>
   return (
     <>
@@ -20,32 +24,42 @@ function ProfileCompany() {
       </Col>
       <Col>
         <p>{profileCompany.email}</p>
-        <h1>
-          {profileCompany.name}
-        </h1>
+        <h1>{profileCompany.name}</h1>
         <Button variant="info" className="me-2" onClick={() => setShow(true)}>
           Edit Profile
         </Button>
         <Col>
-      <Button onClick={()=>setaddshow(true)}>Add project </Button>
-      </Col>
-      <Col>
-      </Col>
-      <Row>
+          <Button onClick={() => setaddshow(true)}>Add project </Button>
+        </Col>
+        <Col></Col>
+        <Row>
           {profileCompany.project.map(project => (
             <ProjectItem project={project} key={project._id} fromProfile={true} />
           ))}
         </Row>
         <Row>
-        {profileCompany.offer.map(offer1=>(
-         <OfferItem offer={offer1}/>
-        ))}
-        {/* <Col>
-        <p>{offer.title}</p>
-        <p>{offer.description}</p>
+          {profileCompany.offer.map(offer1 => (
+            <>
+              <OfferItem offer={offer1} profileCompany={profileCompany} />
 
-        </Col> */}
-        </Row>
+              {/* {offer1.status == "pending" ? (
+                <>
+                  <Button onClick={() => progressOffer(offer._id)}>progress</Button>
+                  <Button onClick={() => refusedOffer(offer._id)}>Refuse</Button>
+                </>
+              ) : offer.status == "progress" ? (
+                <>
+                  <Button>completed</Button>
+                  <Button onClick={() => cancel(offer._id)}> Cancel </Button>
+                </>
+              ) : offer.status == "Cancel" || offer.status == "refused" ? (
+                <>
+                  <Button onClick={() => deleteOffer(offer._id)}>Delete</Button>
+                </>
+              ) : null}*/}
+            </>
+          ))}
+        </Row>{" "}
         <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
         <ProjectAddModal show={addshow} setShow={setaddshow} />
       </Col>

@@ -34,7 +34,8 @@ function ProjectItem(props) {
                 delete Project{" "}
               </Button>
             </>
-          ) : (
+          ) : null}
+          {profile ? (
             <Button
               style={{ backgroundColor: "white", color: "red" }}
               className="ms-3"
@@ -42,7 +43,7 @@ function ProjectItem(props) {
             >
               {profile?.likes.find(like => like._id === project._id) ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
             </Button>
-          )}
+          ) : null}
         </Col>
       </Card>
       <ProjectEditModal show={editShow} setShow={seteditShow} project={project} />

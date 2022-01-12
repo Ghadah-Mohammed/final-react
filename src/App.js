@@ -301,8 +301,10 @@ function App() {
   }
 
   //send offer
-  const sendOffer = async (e, companyId) => {
+  const sendOffer = async (e, companyId, projectId) => {
     console.log(companyId)
+    console.log(projectId)
+
     e.preventDefault()
     try {
       const form = e.target
@@ -310,13 +312,94 @@ function App() {
         title: form.elements.title.value,
         description: form.elements.description.value,
       }
-      await axios.post(`http://localhost:5000/api/company/${companyId}/sendoffer`, offerBody, {
+      await axios.post(`http://localhost:5000/api/company/${companyId}/${projectId}/sendoffer`, offerBody, {
         headers: {
           Authorization: localStorage.tokenEngineer,
         },
       })
+      getProfile()
 
       toast.success("send offer")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //accept Offer
+
+  const progressOffer = async offerId => {
+    // e.preventDefault()
+
+    try {
+      const progressBody = {
+        status: "progress",
+      }
+      await axios.post(`http://localhost:5000/api/company/${offerId}/answeroffer`, progressBody, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      toast.success("accepted offer")
+      getProfileCompany()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //refus Offer
+
+  const refusedOffer = async offerId => {
+    try {
+      const refusedBody = {
+        status: "refused",
+      }
+      await axios.post(`http://localhost:5000/api/company/${offerId}/answeroffer`, refusedBody, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      toast.success("refused offer")
+      getProfileCompany()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //Cancel Offer
+
+  const cancel = async offerId => {
+    try {
+      const cancelBody = {
+        status: "cancel",
+      }
+      await axios.post(`http://localhost:5000/api/company/${offerId}/answeroffer`, cancelBody, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      toast.success("cancel offer")
+      getProfileCompany()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //delet offers
+
+  const deleteOffer = async offerId => {
+    try {
+      await axios.delete(`http://localhost:5000/api/company/offer/${offerId}`, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      toast.success("offer deleted")
+      getProfileCompany()
+      getProfile()
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
@@ -356,6 +439,7 @@ function App() {
       },
     })
     getCompanies()
+    getProjects()
   }
 
   const store = {
@@ -378,6 +462,10 @@ function App() {
     editProject,
     deleteProject,
     sendOffer,
+    progressOffer,
+    refusedOffer,
+    cancel,
+    deleteOffer,
   }
 
   return (

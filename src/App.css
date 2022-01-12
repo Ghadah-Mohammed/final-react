@@ -122,6 +122,8 @@ img:hover {
     color: azure;
     text-align: center;
     margin: 0;
+    /* background-color: rgba(0, 0, 0, 0.87); */
+    padding: 60px;
 }
 
 .title p {
@@ -201,7 +203,6 @@ justify-content: center;
 .navbarbr.scrolled{
     background-color: black;
 }
-
 
 
 

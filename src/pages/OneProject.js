@@ -8,7 +8,7 @@ import {BiSend} from "react-icons/bi"
 import { icons } from "react-icons"
 import SendOfferModal from "../components/SendOfferModal"
 function OneProject() {
-  const { projectId } = useParams()
+  const { projectId  } = useParams()
   const [sendshow,setsendshow]=useState(false)
   const { projects, likeProject, profile, company, profileCompany } = useContext(EngineerContext)
   if (!profile && !profileCompany) return <h1>Loading...</h1>
@@ -58,7 +58,7 @@ function OneProject() {
         <p className="text-muted">{project.description}</p>
         <Button onClick={()=>setsendshow(true)}> send offer! <BiSend /></Button>
       </Col>
-      <SendOfferModal show={sendshow} setShow={setsendshow} company={project} />
+      <SendOfferModal show={sendshow} setShow={setsendshow} company={project} project={project} />
       {/* <Row mx-auto>
         <Col>
           <>

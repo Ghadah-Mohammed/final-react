@@ -90,17 +90,19 @@ function OneCompany() {
                 </Link>
               </Card>
               <Col>
-                <Button
-                  style={{ backgroundColor: "white", color: "red", fontSize: "px" }}
-                  className="ms-3"
-                  onClick={() => likeProject(project1._id)}
-                >
-                  {profile?.likes.find(like => like._id === project1._id) ? (
-                    <MdFavorite style={{ color: `rgb(218, 143, 109)`, fontSize: "40px" }} />
-                  ) : (
-                    <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }} />
-                  )}
-                </Button>
+                {profile ? (
+                  <Button
+                    style={{ backgroundColor: "white", color: "red", fontSize: "px" }}
+                    className="ms-3"
+                    onClick={() => likeProject(project1._id)}
+                  >
+                    {profile?.likes.find(like => like._id === project1._id) ? (
+                      <MdFavorite style={{ color: `rgb(218, 143, 109)`, fontSize: "40px" }} />
+                    ) : (
+                      <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }} />
+                    )}
+                  </Button>
+                ) : null}
               </Col>
             </>
           </Col>
@@ -131,9 +133,13 @@ function OneCompany() {
           </ListGroup>
         ))}
       </Row>
-      <Row>
-        <AddComment companyId={company._id} />
-      </Row>
+      {profile ? (
+        <>
+          <Row>
+            <AddComment companyId={company._id} />
+          </Row>
+        </>
+      ) : null}
     </>
   )
 }
