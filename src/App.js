@@ -241,7 +241,7 @@ function App() {
       const projectBody = {
         title: form.elements.title.value,
         description: form.elements.description.value,
-        photo: [form.elements.photo.value],
+        photo: form.elements.photo.value.split(","),
       }
       await axios.post(`http://localhost:5000/api/project/add-project`, projectBody, {
         headers: {
@@ -406,6 +406,51 @@ function App() {
     }
   }
 
+
+  //add Engineer
+
+  const addEngineer = async e => {
+    e.preventDefault()
+    try {
+      const form = e.target
+
+      const engineerBody = {
+        name: form.elements.name.value,
+        photo:form.elements.photo.value,
+      }
+      await axios.post(`http://localhost:5000/api/company/add-engineer`, engineerBody, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      getProfileCompany()
+      getProfile()
+
+      toast.success("add success")
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+  //delete engineer
+  const deleteEngineer = async engineerId => {
+    try {
+      await axios.delete(`http://localhost:5000/api/company/engineerdelet/${engineerId}`, {
+        headers: {
+          Authorization: localStorage.tokenCompany,
+        },
+      })
+      toast.success("engineer deleted")
+      getProfileCompany()
+      getProfile()
+    } catch (error) {
+      if (error.response) toast.error(error.response.data)
+      else console.log(error)
+    }
+  }
+
+
   //add comment
   const addComment = async (e, companyId) => {
     e.preventDefault()
@@ -466,6 +511,8 @@ function App() {
     refusedOffer,
     cancel,
     deleteOffer,
+    addEngineer,
+    deleteEngineer,
   }
 
   return (

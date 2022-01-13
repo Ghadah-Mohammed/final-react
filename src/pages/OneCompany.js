@@ -39,7 +39,6 @@ function OneCompany() {
         <Col>
           <h1>{company.name}</h1>
           <p style={{ fontSize: "20px", color: "black" }}>{company.description}</p>
-          <Button></Button>
           {/* className="text-muted"  */}
         </Col>
       </Row>
@@ -110,11 +109,11 @@ function OneCompany() {
       </Row>
 
       <Row style={{ width: "800px" }}>
-        <h2 style={{ margin: "2em" }}>Comments</h2>
+        <h2 style={{ margin: "1em 1em " }}>Comments:</h2>
         {company.comment.map(comment1 => (
           <ListGroup>
-            <ListGroup.Item>
-              <h6 style={{}}>{comment1.owner.firstName}</h6>
+            <ListGroup.Item style={{marginLeft:"40px"}}>
+              <h6 style={{paddingLeft:"40px"}}>{comment1.owner.firstName}</h6>
               <Image src={comment1.owner.avatar} width="50px" height="50px" roundedCircle />
               {comment1.comment}
 

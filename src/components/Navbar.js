@@ -6,8 +6,8 @@ function NavbarItem() {
   const { logout } = useContext(EngineerContext)
 
   return (
-    <div style={{ position: "absolute", zIndex: 10, width: "100vw", padding: "20px 60px" }}>
-      <Navbar variant="dark" className="navbarbr" >
+    <div style={{ position: "absolute", top:0, zIndex: 10, width: "100vw", padding: "20px 60px" }} className="navbartop" >
+      <Navbar variant="dark" className="navbarbr"  >
         {/* <Container> */}
           <Navbar.Brand>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>

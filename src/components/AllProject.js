@@ -7,7 +7,7 @@ function AllProject() {
   const { projects } = useContext(EngineerContext)
   return (
     <>
-      <div className="allproject border d-flex justify-content-between  mt-5 " style={{ height: "100vh" }}>
+      <div >
         <h4>Explor Project</h4>
         <h2>all project</h2>
 

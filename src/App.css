@@ -3,6 +3,10 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    overflow-x: hidden;
+    width: 100vw;
+}
 
 
 /* signup */
@@ -201,8 +205,16 @@ justify-content: center;
 }
 
 .navbarbr.scrolled{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.26);
 }
+
+
+.navbartop{
+    background-color: rgba(27, 23, 23, 0.055);
+}
+
+
+
 
 
 

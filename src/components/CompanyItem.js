@@ -6,7 +6,7 @@ function CompanyItem(props) {
 
   return (
     <>
-      <Col style={{ display: "flex", justifyContent: "center" }}>
+      <Col style={{ display: "flex", justifyContent: "center",marginBottom:"1PX" }}>
         <div>
           <Card border="light" style={{ maxWidth: "350px", margin: "28px", border:"none",  backgroundColor: `rgba(227, 227, 235, 1)` }} className="companyCard">
             <Link to={`/company/${company._id}`} className="text-black" style={{ textDecoration: "none" }}>

@@ -8,14 +8,18 @@ import ProjectItem from "../components/ProjectItem"
 import CompanyItem from "../components/CompanyItem"
 import OfferItem from "../components/OfferItem"
 import { useParams } from "react-router-dom"
+import EngineerAddModal from "../components/EngineerAddModal"
+import EngineerDeleteModal from "../components/EngineerDeleteModal"
 function ProfileCompany(props) {
   const { offerId } = useParams
   const { offer } = props
-  const { profileCompany, companies, company, progressOffer, refusedOffer, cancel, deleteOffer } =
+  const { profileCompany, companies, company, progressOffer, refusedOffer, cancel, deleteOffer, deleteEngineer } =
     useContext(EngineerContext)
   const [show, setShow] = useState(false)
   const [addshow, setaddshow] = useState(false)
-  console.log(profileCompany)
+  const [addengshow, setaddengShow] = useState(false)
+  const [deleteEngshow, setdeleteEngShow] = useState(false)
+  // console.log(profileCompany.engineer)
   if (!profileCompany) return <h1>Loading...</h1>
   return (
     <>
@@ -30,6 +34,7 @@ function ProfileCompany(props) {
         </Button>
         <Col>
           <Button onClick={() => setaddshow(true)}>Add project </Button>
+          <Button onClick={() => setaddengShow(true)}>Add engineer </Button>
         </Col>
         <Col></Col>
         <Row>
@@ -59,10 +64,23 @@ function ProfileCompany(props) {
               ) : null}*/}
             </>
           ))}
-        </Row>{" "}
-        <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
-        <ProjectAddModal show={addshow} setShow={setaddshow} />
+        </Row>
+        <h3>Engineers</h3>
+        {profileCompany.engineer.map(engineer1 => (
+          <Row>
+            <Col>
+              <img src={engineer1.photo} height="100px" width="100px" />
+              <h3>{engineer1.name}</h3>
+              <Button onClick={() => setdeleteEngShow(true)}>Delete engineer</Button>
+            </Col>
+            <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
+          </Row>
+        ))}
       </Col>
+
+      <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
+      <ProjectAddModal show={addshow} setShow={setaddshow} />
+      <EngineerAddModal show={addengshow} setShow={setaddengShow} />
     </>
   )
 }
