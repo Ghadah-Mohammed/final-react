@@ -23,21 +23,28 @@ function ProfileCompany(props) {
   if (!profileCompany) return <h1>Loading...</h1>
   return (
     <>
-      <Col md="4">
-        <Image variant="top" roundedCircle src={profileCompany.avatar} width="100px" height="100px" style={{ borderRadius: "10px", margin: "20px" ,marginTop:"100px"}} />
-      </Col>
-      <Col>
+ <Row>
+   <div className="editProfile">
+   <Row>
+    <Col>
+        <Image variant="top" roundedCircle src={profileCompany.avatar} width="150px" height="150px" style={{ borderRadius: "10px" ,marginTop:"100px"}} />
+        </Col>
         <h3>{profileCompany.name}</h3>
         <p>{profileCompany.email}</p>
         <p>{profileCompany.description}</p>
+        <Col>
         <Button variant="info" className="me-2" onClick={() => setShow(true)}>
           Edit Profile
         </Button>
+        </Col>
+        </Row>
+        </div>
+        
         <Col>
           <Button onClick={() => setaddshow(true)}>Add project </Button>
           <Button onClick={() => setaddengShow(true)}>Add engineer </Button>
-        </Col>
-        <Col></Col>
+          </Col>
+        </Row>
         <Row>
           {profileCompany.project.map(project => (
             <ProjectItem project={project} key={project._id} fromProfile={true} />
@@ -77,7 +84,7 @@ function ProfileCompany(props) {
             <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
           </Row>
         ))}
-      </Col>
+     
 
       <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
       <ProjectAddModal show={addshow} setShow={setaddshow} />

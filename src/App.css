@@ -364,3 +364,10 @@ filter: brightness(80%);
 left:0;
 width: 100px;
 }  */
+
+.editProfile{
+    border: 1px solid; 
+    height:400px;
+    margin-top: 50px; 
+
+}
