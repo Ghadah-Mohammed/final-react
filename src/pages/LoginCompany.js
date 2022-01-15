@@ -6,8 +6,8 @@ function LoginCompany() {
   const { logincompany } = useContext(EngineerContext)
   return (
     <>
-      <div className="signupPage login">
-        <section className="signuparea pt-5" style={{ height: "300px" }}>
+      <div className="loginPage login">
+        <section className="loginarea " style={{ height: "400px" }}>
           <h1>login as user</h1>
           <p>Enter your personal details and join us!</p>
           <button>
@@ -16,7 +16,7 @@ function LoginCompany() {
            
           </button>
         </section>
-        <section className="signupform pt-5">
+        <section className="loginform">
           <Form onSubmit={logincompany} style={{ height: "300px" }}>
             <h1>login as company</h1>
             <Form.Group className="mb-3" controlId="formBasicEmail">

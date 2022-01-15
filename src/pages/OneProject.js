@@ -38,7 +38,7 @@ function OneProject() {
         </Col>
       </Row>
       <Row>
-        <Col md="8" className="mx-auto">
+        <Col md="8" className="mx-auto" style={{margin:"60px"}}>
           <Carousel>
             {project.photo?.map(project1 => (
               <Carousel.Item>
@@ -50,13 +50,14 @@ function OneProject() {
       </Row>
       <Link to={`/company/${project.companyId._id}`}>
         <Row>
-          <h1>{project.companyId?.name}</h1>
+          <h1 style={{marginLeft:"78px",fontSize:"20px"}}>{project.companyId?.name}</h1>
         </Row>
       </Link>
-      <Col>
-        <h1>{project.name}</h1>
-        <p className="text-muted">{project.description}</p>
-        <Button onClick={()=>setsendshow(true)}> send offer! <BiSend /></Button>
+      <Col style={{marginLeft:"40px"}}>
+        {/* <h1 style={{textDecorationColor:"none",marginLeft:"40px"}}>{project.title}</h1> */}
+        <h3 style={{marginLeft:"40px"}}>Description:</h3>
+        <p className="text-muted" style={{marginLeft:"40px",border:""}}>{project.description}</p>
+        <Button style={{marginLeft:"40px",marginBottom:"50px"}} onClick={()=>setsendshow(true)}> send offer! <BiSend /></Button>
       </Col>
       <SendOfferModal show={sendshow} setShow={setsendshow} company={project} project={project} />
       {/* <Row mx-auto>

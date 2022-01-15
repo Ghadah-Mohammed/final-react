@@ -11,8 +11,8 @@ function AllCompany() {
     <div className="header">
     <h1 style={{fontSize:"50px",fontFamily:"-moz-initial"}}>You can send a request to any company to do your project</h1>
     <div className="buttonAllproject">
-    <Link to={`/projects`}>
-    <button style={{borderRadius:"40px",padding:"15px",color:"white",backgroundColor:"black",borderColor:"black" ,textAlign:"center",fontSize:"25px" ,justifyContent:"center",fontFamily:"inherit"}}>See All Projects</button>
+    <Link className="buttonSeeAllProject" to={`/projects`}>
+    <button className="buttonSeeAllProject" style={{borderRadius:"40px",padding:"15px",color:"white",backgroundColor:"black",borderColor:"black" ,textAlign:"center",fontSize:"25px",justifyContent:"center",fontFamily:"inherit" }}>See All Projects</button>
     </Link>
     </div>
     </div>

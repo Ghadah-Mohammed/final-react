@@ -1,3 +1,4 @@
+import { Button } from "bootstrap"
 import { Col } from "react-bootstrap"
 // import Logo from "../images/Logo.png"
 import { IconContext } from "react-icons"
@@ -5,7 +6,7 @@ import { AiOutlineMail } from "react-icons/ai"
 import { FcLike } from "react-icons/fc"
 function Footer() {
   return (
-    <div style={{marginTop:"2px"}} className="footer">
+    <div style={{marginTop:"50px" , Button:"0"}} className="footer">
       <Col>
         {/* <img src={} width="100" height="50" className="d-inline-block align-top" alt="React Bootstrap logo" /> */}
       </Col>

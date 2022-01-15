@@ -18,6 +18,10 @@ function SignUpcompany() {
               <Form.Label>Email address</Form.Label>
               <Form.Control required type="email" name="email" placeholder="Enter email" />
             </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Description Company</Form.Label>
+              <Form.Control required as="textarea" type="text" name="description" placeholder="Enter your description company" />
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
@@ -39,7 +43,7 @@ function SignUpcompany() {
             <p>Enter your personal details and join us!</p>
             <button>
               {" "}
-              <a href="/signup">sign </a>
+              <a href="/signup">Sign Now! </a>
             </button>
           </div>
         </section>

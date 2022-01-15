@@ -197,6 +197,7 @@ function App() {
       const form = e.target
       const userBody = {
         name: form.elements.name.value,
+        description: form.elements.description.value,
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
       }
@@ -406,7 +407,6 @@ function App() {
     }
   }
 
-
   //add Engineer
 
   const addEngineer = async e => {
@@ -416,7 +416,7 @@ function App() {
 
       const engineerBody = {
         name: form.elements.name.value,
-        photo:form.elements.photo.value,
+        photo: form.elements.photo.value,
       }
       await axios.post(`http://localhost:5000/api/company/add-engineer`, engineerBody, {
         headers: {
@@ -449,7 +449,6 @@ function App() {
       else console.log(error)
     }
   }
-
 
   //add comment
   const addComment = async (e, companyId) => {

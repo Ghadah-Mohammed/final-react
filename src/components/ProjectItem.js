@@ -17,12 +17,12 @@ function ProjectItem(props) {
 
   return (
     <>
-      <Card border="light" style={{ maxWidth: "350px", margin: "28px", border: "12px" }} className="projectitem">
-        <Link to={`/project/${project._id}`} className="text-black" style={{ textDecoration: "none" }}>
-          <Card.Img variant="top" src={project.photo} height="220px" />
+      <Card border="light" style={{ maxWidth: "350px", margin: "28px", border: "12px",}} >
+        <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
+          <Card.Img variant="top" src={project.photo} height="220px" className="projectitem" style={{margin:"15px"}}/>
           <Card.Body>
-            <Card.Title>{project.title}</Card.Title>
-            <Card.Text>{project.description}</Card.Text>
+            <Card.Title style={{textDecoration: "none"}}>{project.title}</Card.Title>
+            {/* <Card.Text>{project.description}</Card.Text> */}
           </Card.Body>
         </Link>{" "}
         <Col>
@@ -36,12 +36,13 @@ function ProjectItem(props) {
             </>
           ) : null}
           {profile ? (
-            <Button
+            <Button 
               style={{ backgroundColor: "white", color: "red" }}
-              className="ms-3"
+              className="ms-1"
               onClick={() => likeProject(project._id)}
             >
-              {profile?.likes.find(like => like._id === project._id) ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
+              {profile?.likes.find(like => like._id === project._id) ? 
+              <MdFavorite style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px" }} /> : <MdOutlineFavoriteBorder  style={{ color: "black", fontSize: "40px" }} />}
             </Button>
           ) : null}
         </Col>

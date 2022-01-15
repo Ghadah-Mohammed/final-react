@@ -43,7 +43,7 @@ function SignUp() {
             <p>Enter your Company details and join us!</p>
             <button>
               {" "}
-              <a href="/signupcompany">Sign </a>
+              <a href="/signupcompany">Sign Now! </a>
             </button>
           </div>
         </section>

@@ -9,7 +9,7 @@ function ProjectAddModal(props) {
     <Modal show={show} onHide={() => setShow(false)}>
       <Form onSubmit={addProject}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Project</Modal.Title>
+          <Modal.Title>Add Project</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group as={Row} className="mb-3">
@@ -17,7 +17,7 @@ function ProjectAddModal(props) {
               Title
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="title"  required />
+              <Form.Control type="text" name="title" required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">

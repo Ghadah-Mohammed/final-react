@@ -4,14 +4,14 @@ import EngineerContext from "../Utils/EngineerContext"
 
 function CompanyEditModal(props) {
   const { show, setShow, company } = props
-  console.log(company);
+  console.log(company)
   const { editProfileCompany } = useContext(EngineerContext)
   return (
     <>
       <Modal show={show} onHide={() => setShow(false)}>
         <Form className="mt-5" onSubmit={e => editProfileCompany(e)}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit information</Modal.Title>
+            <Modal.Title>Edit information company</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group as={Row} className="mb-3">
@@ -20,6 +20,14 @@ function CompanyEditModal(props) {
               </Form.Label>
               <Col md="8">
                 <Form.Control type="text" name="name" defaultValue={company.name} required />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column md="3">
+                Description:
+              </Form.Label>
+              <Col md="8">
+                <Form.Control as="textarea" type="text" name="description" defaultValue={company.description} required />
               </Col>
             </Form.Group>
           </Modal.Body>

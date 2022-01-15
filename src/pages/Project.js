@@ -11,13 +11,15 @@ function Project() {
 
   return (
     <>
+    <div>
       <Row mx-auto>
         {projects.map(project1 => (
           <Col>
             <>
-              <Card  className="zoom" style={{ borderRadius: "20px", border: "12px", margin: "300px 40px 20px 40px" }}>
+              <Card  className="zoom" style={{ borderRadius: "20px", border: "12px", margin: "300px 40px 20px 40px"}}>
                 <Link to={`/project/${project1._id}`}></Link>
                 <Card.Img
+               
                   variant="top"
                   src={project1.photo}
                   style={{ height: "400px", width: "400px", objectFit: "cover" }}
@@ -28,14 +30,12 @@ function Project() {
               </Card>
               <Col>
                 <Button
-                  style={{ backgroundColor: "white", color: "red" }}
-                  className="ms-3"
                   onClick={() => likeProject(project1._id)}
                 >
                   {profile?.likes.find(like => like._id === project1._id) ? (
-                    <MdFavorite />
+                    <MdFavorite style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px"  }}/>
                   ) : (
-                    <MdOutlineFavoriteBorder />
+                    <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }}/>
                   )}
                 </Button>
               </Col>
@@ -43,6 +43,7 @@ function Project() {
           </Col>
         ))}
       </Row>
+      </div>
     </>
   )
 }

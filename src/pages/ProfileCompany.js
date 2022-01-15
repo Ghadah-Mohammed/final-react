@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Card, Col, Row, Button } from "react-bootstrap"
+import { Card, Col, Row, Button, Image } from "react-bootstrap"
 import CompanyEditModal from "../components/CompanyEditModal"
 import ProjectAddModal from "../components/ProjectAddModal"
 import EngineerContext from "../Utils/EngineerContext"
@@ -24,11 +24,12 @@ function ProfileCompany(props) {
   return (
     <>
       <Col md="4">
-        <img variant="top" src={profileCompany.avatar} width="50%" style={{ borderRadius: "10px", margin: "20px" }} />
+        <Image variant="top" roundedCircle src={profileCompany.avatar} width="100px" height="100px" style={{ borderRadius: "10px", margin: "20px" ,marginTop:"100px"}} />
       </Col>
       <Col>
+        <h3>{profileCompany.name}</h3>
         <p>{profileCompany.email}</p>
-        <h1>{profileCompany.name}</h1>
+        <p>{profileCompany.description}</p>
         <Button variant="info" className="me-2" onClick={() => setShow(true)}>
           Edit Profile
         </Button>

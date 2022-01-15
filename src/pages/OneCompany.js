@@ -34,7 +34,7 @@ function OneCompany() {
         }}
       >
         <Col md="4">
-          <img variant="top" src={company.avatar} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
+          <img variant="top" src={company.avatar} width="100%" height="100%" style={{ borderRadius: "10px", margin: "20px" }} />
         </Col>
         <Col>
           <h1>{company.name}</h1>
@@ -75,20 +75,20 @@ function OneCompany() {
           <Col>
             <>
               <Card style={{ border: "12px", margin: "100px 40px 20px 40px" }}>
-                <Link to={`/project/${project1._id}`}>
+                <Link className="linkOneCompany" to={`/project/${project1._id}`} style={{textDecoration:"none"}} >
                   <Card.Img
                     variant="top"
                     src={project1.photo}
-                    style={{ height: "400px", width: "400px", objectFit: "cover" }}
+                    style={{ height: "300px", width: "300px", objectFit: "cover" }}
                     width="80px"
                     roundedCircle
                   />
                   {/* <Link to={`/project/${project1._id}`}></Link> */}
-                  <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title>
+                  <Card.Title style={{ margin: "15px" ,color:"black" ,}}>{project1.title}</Card.Title>
                   <Card.Body></Card.Body>
                 </Link>
               </Card>
-              <Col>
+              <Col style={{margin:"0px 30px"}}>
                 {profile ? (
                   <Button
                     style={{ backgroundColor: "white", color: "red", fontSize: "px" }}
@@ -96,9 +96,11 @@ function OneCompany() {
                     onClick={() => likeProject(project1._id)}
                   >
                     {profile?.likes.find(like => like._id === project1._id) ? (
-                      <MdFavorite style={{ color: `rgb(218, 143, 109)`, fontSize: "40px" }} />
+                    
+                      
+                      <MdFavorite  className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px" }} />
                     ) : (
-                      <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }} />
+                      <MdOutlineFavoriteBorder  className="MdFavorite" style={{ color: "black", fontSize: "40px" }}/>
                     )}
                   </Button>
                 ) : null}
@@ -109,12 +111,12 @@ function OneCompany() {
       </Row>
 
       <Row style={{ width: "800px" }}>
-        <h2 style={{ margin: "1em 1em " }}>Comments:</h2>
+        <h2 style={{ margin: "80px 30px 20px " }}>Comments:</h2>
         {company.comment.map(comment1 => (
           <ListGroup>
             <ListGroup.Item style={{marginLeft:"40px"}}>
               <h6 style={{paddingLeft:"40px"}}>{comment1.owner.firstName}</h6>
-              <Image src={comment1.owner.avatar} width="50px" height="50px" roundedCircle />
+              <Image style={{marginRight:"15px"}} src={comment1.owner.avatar} width="50px" height="50px" roundedCircle />
               {comment1.comment}
 
               <span>

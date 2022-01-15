@@ -15,16 +15,17 @@ body{
     display: flex;
     /* align-items: center; */
     /* margin-right: 500px; */
-    margin-top: 30px;
-    margin-left: 500px;
+ margin-top: 89px;
+     margin-left: 350px;
+    /* margin-right: 500px; */
     /* 
     background-color: rgb(244, 244, 247);
     border: 1px solid; */
-    width: 600px;
+    width: 550px;
+    height: 620px;
 }
-
-
 .signupform {
+    margin-right: 70px;
     width: 280px;
     margin: 15px 0px 15px 20px;
     text-align: center;
@@ -35,6 +36,7 @@ body{
 }
 
 .signupform button {
+    border: none;
     border-radius: 13px;
     padding-left: 30px;
     padding-right: 30px;
@@ -57,6 +59,7 @@ body{
 }
 
 .signuparea button {
+    border: none;
     border-radius: 13px;
     padding-left: 30px;
     padding-right: 30px;
@@ -78,6 +81,92 @@ body{
 .signuparea p {
     color: whitesmoke;
 }
+
+.signuparea a {
+    text-decoration: none;
+    color: black;
+}
+
+
+ 
+
+.loginPage {
+    display: flex;
+    /* align-items: center; */
+    /* margin-right: 500px; */
+    margin-top: 89px;
+     margin-left: 350px;
+    /* margin-right: 500px; */
+    /* 
+    background-color: rgb(244, 244, 247);
+    border: 1px solid; */
+    width: 500px;
+}
+
+.loginform {
+    /* margin-right: 90px; */
+    /* width: 280px; */
+    margin: 15px 0px 15px 0px;
+    text-align: center;
+    background-color: rgb(227, 227, 235);
+    padding: 10px;
+    width: 400px;
+
+}
+
+.loginform button {
+    border: none;
+    border-radius: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(27, 23, 23);
+    background-color: white;
+
+}
+
+
+.loginarea {
+    /* width: 280px; */
+    margin: 15px 0px 15px 0px;
+    text-align: center;
+    /* background-color: rgb(102, 102, 168); */
+    background: url("./assets/sugnup1.jpg") center/cover;
+    padding: 19px;
+    padding-top: 100px;
+    /* padding: 10px; */
+
+    width: 400px;
+    
+    
+
+}
+
+.loginarea button {
+    border: none;
+    border-radius: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(226, 25, 25);
+    background-color: white;
+    text-decoration: none;
+}
+
+
+.loginarea h1 {
+    color: whitesmoke;
+}
+
+.loginarea p {
+    color: whitesmoke;
+}
+
+.loginarea a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
 
 /* scale(1.2); */
 
@@ -120,14 +209,18 @@ img:hover {
     height: 80%;
     width: 100%;
 }
+.contain h1{
+    font-size: 10px;
+}
 
 .title h1 {
-    font-size: 60px;
+    font-size: 4em;
     color: azure;
-    text-align: center;
+    /* text-align: center; */
     margin: 0;
+    margin-left: 12px;
     /* background-color: rgba(0, 0, 0, 0.87); */
-    padding: 60px;
+    /* padding: 60px; */
 }
 
 .title p {
@@ -197,7 +290,7 @@ justify-content: center;
     justify-content: center;
     align-items: center;
     height: 200px;
-    background-color: rgba(82, 76, 76, 0.5);
+    background-color: rgb(0, 0, 0);
     /* rgba(82, 76, 76, 0.5); */
     color: white;
     text-align: center;
@@ -210,12 +303,64 @@ justify-content: center;
 
 
 .navbartop{
-    background-color: rgba(27, 23, 23, 0.055);
+    background-color: rgba(0, 0, 0, 0.404);
 }
 
 
 
+.MdFavorite{
+}
+
+.projectitem:hover{
+filter: brightness(80%);
+}
+.projectitem{
+    transition: .3s ease-in-out;
+    transform:scale(1.1) ;
+}
 
 
+.linkOneCompany :hover{
+
+}
+
+.buttonSeeAllProject :hover{
+
+    transform: scale(1.03);
+    transition: all 1s ease;
+    opacity: rgba(228, 215, 215, 0.144);
+}
 
 
+ /* .navbartop{
+    width: 100%; 
+     display: flex; 
+     justify-content: space-around; 
+     align-items: center; 
+     list-style: none; 
+} */
+
+
+ /* .navbartop .nav-link{
+    position: relative;
+    color:var(--light);
+    text-decoration: none;
+    padding: 7px 0;
+    font-size: 1.3rem;
+} */
+
+/* .navbartop .nav-link::after{
+    content: '';
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    background: var(--white);
+    translate:0.4s ease-out ;
+}
+
+.navbartop .nav-link:hover::after{
+left:0;
+width: 100px;
+}  */

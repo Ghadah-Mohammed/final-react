@@ -7,14 +7,14 @@ function AllProject() {
   const { projects } = useContext(EngineerContext)
   return (
     <>
-      <div >
+      <div style={{margin:"150px 15px"}}>
         <h4>Explor Project</h4>
-        <h2>all project</h2>
+        {/* <h2>all project</h2> */}
 
         <Row>
           {projects.map(project => (
             <ProjectItem project={project} key={project._id} />
-          ))}
+            ))}
         </Row>
       </div>
     </>
