@@ -3,7 +3,8 @@
     margin: 0px;
     padding: 0px;
 }
-body{
+
+body {
     overflow-x: hidden;
     width: 100vw;
 }
@@ -14,16 +15,17 @@ body{
 .signupPage {
     display: flex;
     /* align-items: center; */
-    /* margin-right: 500px; */
- margin-top: 89px;
-     margin-left: 350px;
-    /* margin-right: 500px; */
+    margin-right: auto;
+    margin-top: 89px;
+    margin-left: auto;
+
     /* 
     background-color: rgb(244, 244, 247);
     border: 1px solid; */
     width: 550px;
     height: 620px;
 }
+
 .signupform {
     margin-right: 70px;
     width: 280px;
@@ -54,7 +56,7 @@ body{
     padding: 15px;
     padding-top: 30%;
     width: 400px;
-    
+
 
 }
 
@@ -88,14 +90,14 @@ body{
 }
 
 
- 
+
 
 .loginPage {
     display: flex;
     /* align-items: center; */
     /* margin-right: 500px; */
     margin-top: 89px;
-     margin-left: 350px;
+    margin-left: 350px;
     /* margin-right: 500px; */
     /* 
     background-color: rgb(244, 244, 247);
@@ -136,8 +138,8 @@ body{
     /* padding: 10px; */
 
     width: 400px;
-    
-    
+
+
 
 }
 
@@ -209,7 +211,8 @@ img:hover {
     height: 80%;
     width: 100%;
 }
-.contain h1{
+
+.contain h1 {
     font-size: 10px;
 }
 
@@ -248,19 +251,18 @@ img:hover {
 
 
 /* edit card */
-.companyCard :hover{
+.companyCard :hover {
     /* background-color:rgba(63, 62, 62, 0.911); */
     /* color: white; */
-   transform: scale(1.03);
-transition: all 1s ease;
-    
+    transform: scale(1.03);
+    transition: all 1s ease;
+
     /* transition: 0.1s;
 transform: scale(1.1); */
 
 }
-.companyCard{
-   
-}
+
+.companyCard {}
 
 
 /* .companyCard{
@@ -269,14 +271,14 @@ justify-content: center;
 } */
 
 
-.header{
+.header {
     margin-top: 80px;
     margin-left: 60px;
     color: rgba(44, 44, 46, 0.904);
 
 }
 
-.buttonAllproject{
+.buttonAllproject {
     display: flex;
     justify-content: center;
     margin-top: 40px;
@@ -297,42 +299,52 @@ justify-content: center;
     /* color: rgb(218, 143, 109); */
 }
 
-.navbarbr.scrolled{
+.navbarbr.scrolled {
     background-color: rgba(0, 0, 0, 0.26);
 }
 
 
-.navbartop{
+.navbartop {
     background-color: rgba(0, 0, 0, 0.404);
 }
 
 
 
-.MdFavorite{
+.MdFavorite {}
+
+.projectitem:hover {
+    filter: brightness(80%);
 }
 
-.projectitem:hover{
-filter: brightness(80%);
-}
-.projectitem{
+.projectitem {
     transition: .3s ease-in-out;
-    transform:scale(1.1) ;
+    transform: scale(1.1);
 }
 
 
-.linkOneCompany :hover{
+.linkOneCompany :hover {}
+
+.buttonSeeAllProject {
+    background-color: black;
+    border-radius: 40px;
+    padding: 15px;
+    color: white;
+    border-color: black;
+    text-align: center;
+    font-size: 25px;
+}
+
+.buttonSeeAllProject:hover {
+
+    /* transform: scale(1.03); */
+    /* transition: all .5s ease; */
+    opacity: 0.7;
+    /* color: black; */
 
 }
 
-.buttonSeeAllProject :hover{
 
-    transform: scale(1.03);
-    transition: all 1s ease;
-    opacity: rgba(228, 215, 215, 0.144);
-}
-
-
- /* .navbartop{
+/* .navbartop{
     width: 100%; 
      display: flex; 
      justify-content: space-around; 
@@ -341,7 +353,7 @@ filter: brightness(80%);
 } */
 
 
- /* .navbartop .nav-link{
+/* .navbartop .nav-link{
     position: relative;
     color:var(--light);
     text-decoration: none;
@@ -365,9 +377,18 @@ left:0;
 width: 100px;
 }  */
 
-.editProfile{
-    border: 1px solid; 
-    height:400px;
-    margin-top: 50px; 
-
+.editProfile {
+    color: white;
+    text-align: center;
+    /* background-color: rgb(183, 190, 190); */
+    background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://images.pexels.com/photos/462387/pexels-photo-462387.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    /* opacity: 0.5; */
+    /* object-fit: cover; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
+/* .avatarCompany{
+
+} */

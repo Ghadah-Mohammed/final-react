@@ -19,7 +19,7 @@ function CompanyItem(props) {
                 <Card.Title>{company.name}</Card.Title>
               </Card.Body>
               <Card.Body >
-                <Card.Text>{company.description}</Card.Text>
+                {/* <Card.Text>{company.description}</Card.Text> */}
               </Card.Body>
             </Link>
           </Card>

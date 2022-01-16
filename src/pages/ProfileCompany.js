@@ -10,6 +10,10 @@ import OfferItem from "../components/OfferItem"
 import { useParams } from "react-router-dom"
 import EngineerAddModal from "../components/EngineerAddModal"
 import EngineerDeleteModal from "../components/EngineerDeleteModal"
+import { FaEdit } from "react-icons/fa"
+import { HiUserAdd } from "react-icons/hi"
+import { MdOutlinePostAdd } from "react-icons/md"
+
 function ProfileCompany(props) {
   const { offerId } = useParams
   const { offer } = props
@@ -23,39 +27,73 @@ function ProfileCompany(props) {
   if (!profileCompany) return <h1>Loading...</h1>
   return (
     <>
- <Row>
-   <div className="editProfile">
-   <Row>
-    <Col>
-        <Image variant="top" roundedCircle src={profileCompany.avatar} width="150px" height="150px" style={{ borderRadius: "10px" ,marginTop:"100px"}} />
-        </Col>
-        <h3>{profileCompany.name}</h3>
-        <p>{profileCompany.email}</p>
-        <p>{profileCompany.description}</p>
-        <Col>
-        <Button variant="info" className="me-2" onClick={() => setShow(true)}>
-          Edit Profile
-        </Button>
-        </Col>
-        </Row>
-        </div>
-        
-        <Col>
-          <Button onClick={() => setaddshow(true)}>Add project </Button>
-          <Button onClick={() => setaddengShow(true)}>Add engineer </Button>
-          </Col>
-        </Row>
-        <Row>
-          {profileCompany.project.map(project => (
-            <ProjectItem project={project} key={project._id} fromProfile={true} />
-          ))}
-        </Row>
-        <Row>
-          {profileCompany.offer.map(offer1 => (
-            <>
-              <OfferItem offer={offer1} profileCompany={profileCompany} />
+      <Row>
+        <div className="editProfile">
+          <Row>
+            <Col>
+              <Image
+                className="avatarCompany"
+                variant="top"
+                roundedCircle
+                src={profileCompany.avatar}
+                width="150px"
+                height="150px"
+                style={{ borderRadius: "10px", marginTop: "100px" }}
+              />
+            </Col>
+            <h3 >{profileCompany.name}</h3>
+            <p>
+              {profileCompany.email} <FaEdit onClick={() => setShow(true)} style={{}} />
+            </p>
+            <p>{profileCompany.description} </p>
 
-              {/* {offer1.status == "pending" ? (
+            <Col>
+              {/* variant="info" className="me-2"  */}
+              {/* <FaEdit onClick={() => setShow(true)}style={{}} /> */}
+              <Button
+                style={{ padding: "5px 30px", backgroundColor: "black", border: "none", marginBottom: "10px" }}
+                onClick={() => setaddshow(true)}
+              >
+                <MdOutlinePostAdd style={{ fontSize: "20px" }} /> project{" "}
+              </Button>
+              <Button
+                style={{
+                  padding: "5px 30px",
+                  backgroundColor: "black",
+                  border: "none",
+                  marginBottom: "10px",
+                  marginLeft: "10px",
+                }}
+                onClick={() => setaddengShow(true)}
+              >
+                {" "}
+                <HiUserAdd style={{ fontSize: "20px" }} /> engineer{" "}
+              </Button>
+            </Col>
+          </Row>
+        </div>
+
+        {/* <Col>
+          <Button style={{padding:"5px 30px" ,backgroundColor:"royalblue"}} onClick={() => setaddshow(true)}>Add project </Button>
+          <Button onClick={() => setaddengShow(true)}>Add engineer </Button>
+          </Col> */}
+      </Row>
+      <Row>
+        <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Company projects</h3>
+        {profileCompany.project.map(project => (
+          <ProjectItem project={project} key={project._id} fromProfile={true} />
+        ))}
+      </Row>
+      <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>user offers</h3>
+
+      <Row md={4} style={{backgroundColor:"rgb(87, 85, 83)",height:"60vh"}} >
+    
+    
+        {profileCompany.offer.map(offer1 => (
+          <>
+            <OfferItem offer={offer1} profileCompany={profileCompany} />
+
+            {/* {offer1.status == "pending" ? (
                 <>
                   <Button onClick={() => progressOffer(offer._id)}>progress</Button>
                   <Button onClick={() => refusedOffer(offer._id)}>Refuse</Button>
@@ -70,21 +108,21 @@ function ProfileCompany(props) {
                   <Button onClick={() => deleteOffer(offer._id)}>Delete</Button>
                 </>
               ) : null}*/}
-            </>
-          ))}
-        </Row>
-        <h3>Engineers</h3>
-        {profileCompany.engineer.map(engineer1 => (
-          <Row>
-            <Col>
-              <img src={engineer1.photo} height="100px" width="100px" />
-              <h3>{engineer1.name}</h3>
-              <Button onClick={() => setdeleteEngShow(true)}>Delete engineer</Button>
-            </Col>
-            <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
-          </Row>
+          </>
         ))}
-     
+        {/* </Col> */}
+      </Row>
+      <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Engineers</h3>
+      {profileCompany.engineer.map(engineer1 => (
+        <Row>
+          <Col>
+            <Image roundedCircle src={engineer1.photo} height="100px" width="100px" />
+            <h3>{engineer1.name}</h3>
+            <Button onClick={() => setdeleteEngShow(true)}>Delete engineer</Button>
+          </Col>
+          <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
+        </Row>
+      ))}
 
       <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
       <ProjectAddModal show={addshow} setShow={setaddshow} />

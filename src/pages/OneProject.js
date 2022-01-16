@@ -11,7 +11,6 @@ function OneProject() {
   const { projectId  } = useParams()
   const [sendshow,setsendshow]=useState(false)
   const { projects, likeProject, profile, company, profileCompany } = useContext(EngineerContext)
-  if (!profile && !profileCompany) return <h1>Loading...</h1>
   if (projects.length === 0) return <h1>Loading...</h1>
   const project = projects.find(project => project._id === projectId)
 

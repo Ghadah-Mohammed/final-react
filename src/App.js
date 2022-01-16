@@ -74,7 +74,7 @@ function App() {
   }
   //get project
   const getProjects = async () => {
-    const response = await axios("http://localhost:5000/api/project")
+    const response = await axios.get("http://localhost:5000/api/project")
     setProjects(response.data)
     console.log(response.data)
   }
@@ -137,6 +137,7 @@ function App() {
         name: form.elements.name.value,
         password: form.elements.password.value,
         email: form.elements.email.value,
+        description: form.elements.description.value,
         avatar: form.elements.avatar.value,
       }
       await axios.post("http://localhost:5000/api/company/signup", userBody)
@@ -251,6 +252,7 @@ function App() {
       })
       getProfileCompany()
       getProjects()
+      getCompanies()
       toast.success("add success")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
@@ -525,7 +527,18 @@ function App() {
           <Route path="/company/:companyId" element={<OneCompany />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={localStorage.tokenEngineer ? <ProfileUser /> : <ProfileCompany />} />
+          <Route
+            path="/profile"
+            element={
+              localStorage.tokenEngineer ? (
+                <ProfileUser />
+              ) : localStorage.tokenCompany ? (
+                <ProfileCompany />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
           {/* <Route path="/profile" element={<ProfileUser />} /> */}
           {/* <Route path="/profile" element={localStorage.tokenCompany ? <ProfileCompany /> : null} /> */}
           <Route path="/projects" element={<AllProject />} />

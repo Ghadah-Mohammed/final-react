@@ -29,11 +29,11 @@ function Project() {
                 {/* <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title> */}
               </Card>
               <Col>
-                <Button
+                <Button style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px"  ,backgroundColor:"revert"}}
                   onClick={() => likeProject(project1._id)}
                 >
                   {profile?.likes.find(like => like._id === project1._id) ? (
-                    <MdFavorite style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px"  }}/>
+                    <MdFavorite />
                   ) : (
                     <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }}/>
                   )}

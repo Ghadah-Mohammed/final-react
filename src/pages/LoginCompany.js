@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { Form, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import EngineerContext from "../Utils/EngineerContext"
 
 function LoginCompany() {
@@ -12,7 +13,7 @@ function LoginCompany() {
           <p>Enter your personal details and join us!</p>
           <button>
             {" "}
-            <a href="/login">Log in Now! </a>
+            <Link to="/login">Log in Now! </Link>
            
           </button>
         </section>

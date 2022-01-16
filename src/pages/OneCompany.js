@@ -9,9 +9,8 @@ import { RiDeleteBinLine } from "react-icons/ri"
 function OneCompany() {
   const { deleteComment } = useContext(EngineerContext)
   const { companyId } = useParams()
-  const { companies, likeProject, profile, profileCompany } = useContext(EngineerContext)
+  const { companies, likeProject, profile } = useContext(EngineerContext)
   if (companies.length === 0) return <h1>Loading...</h1>
-  if (!profile && !profileCompany) return <h1>Loading...</h1>
   const company = companies.find(company => company._id === companyId)
 
   let liked = false
@@ -91,16 +90,16 @@ function OneCompany() {
               <Col style={{margin:"0px 30px"}}>
                 {profile ? (
                   <Button
-                    style={{ backgroundColor: "white", color: "red", fontSize: "px" }}
+                    style={{ backgroundColor: "white", color: "red", fontSize: "px", border:"none" }}
                     className="ms-3"
                     onClick={() => likeProject(project1._id)}
                   >
                     {profile?.likes.find(like => like._id === project1._id) ? (
                     
                       
-                      <MdFavorite  className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px" }} />
+                      <MdFavorite  className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"}} />
                     ) : (
-                      <MdOutlineFavoriteBorder  className="MdFavorite" style={{ color: "black", fontSize: "40px" }}/>
+                      <MdOutlineFavoriteBorder  className="MdFavorite" style={{ color: "black", fontSize: "40px" , border:"none"}}/>
                     )}
                   </Button>
                 ) : null}

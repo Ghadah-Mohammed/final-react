@@ -1,39 +1,78 @@
 import { useContext } from "react"
-import { Button, Card, Row } from "react-bootstrap"
+import { Button, Card, Col, Row } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
-
+import { AiFillCheckSquare } from "react-icons/ai"
+import { RiDeleteBin5Line, RiChatDeleteLine } from "react-icons/ri"
 function OfferItem(props) {
   const { offer, profile, profileCompany } = props
   const { progressOffer, refusedOffer, deleteOffer, cancel } = useContext(EngineerContext)
 
   console.log(profile)
   console.log(profileCompany)
-
+  if (!offer) return null
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <Card.Title>{offer.title}</Card.Title>
-          <Card.Text>{offer.description}</Card.Text>
-          <Card.Text>{offer.status}</Card.Text>
+    <Col>
+      <Card style={{ height: "50vh",marginTop:"5vh",marginLeft:"5px" }}>
+        <Card.Body style={{ fontWeight: "700" }}>
+          <Card.Title>Title: {offer.title}</Card.Title>
+          <Card.Text style={{ maxHeight: 50, overflowY: "scroll" }}> Description: {offer.description}</Card.Text>
+          <Card.Text > email: {offer.userId.email}</Card.Text>
+
+          <Card.Text> Status : {offer.status}</Card.Text>
           {profileCompany ? (
-            <>
+            <div style={{ position: "absolute", bottom: "2px" }}>
               {offer.status == "pending" ? (
                 <>
-                  <Button onClick={() => progressOffer(offer._id)}>progress</Button>
-                  <Button onClick={() => refusedOffer(offer._id)}>Refuse</Button>
+                  <Button
+                    style={{
+                      textAlgin: "center",
+                      backgroundColor: "rgb(87, 85, 83)",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                    onClick={() => progressOffer(offer._id)}
+                  >
+                    {" "}
+                    <AiFillCheckSquare />
+                    progress
+                  </Button>
+                  <Button
+                    style={{ border: "none", fontSize: "15px", marginLeft: "5px" }}
+                    variant="danger"
+                    onClick={() => refusedOffer(offer._id)}
+                  >
+                    {" "}
+                    <RiChatDeleteLine />
+                    Refuse
+                  </Button>
                 </>
               ) : offer.status == "progress" ? (
                 <>
-                  <Button>completed</Button>
-                  <Button onClick={() => deleteOffer(offer._id)}>Delete</Button>
+                  <Button style={{ textAlgin: "center", backgroundColor: "green", border: "none", fontSize: "15px" }}>
+                    completed
+                  </Button>
+                  <Button
+                    style={{ border: "none", fontSize: "15px", marginLeft: "5px" }}
+                    variant="danger"
+                    onClick={() => deleteOffer(offer._id)}
+                  >
+                    {" "}
+                    <RiDeleteBin5Line /> Delete
+                  </Button>
                 </>
               ) : offer.status == "cancel" || offer.status == "refused" ? (
                 <>
-                  <Button onClick={() => deleteOffer(offer._id)}>Delete</Button>
+                  <Button
+                    style={{ border: "none", fontSize: "15px", marginLeft: "5px" }}
+                    variant="danger"
+                    onClick={() => deleteOffer(offer._id)}
+                  >
+                    {" "}
+                    <RiDeleteBin5Line /> Delete
+                  </Button>
                 </>
               ) : null}
-            </>
+            </div>
           ) : null}
 
           {profile ? (
@@ -47,7 +86,7 @@ function OfferItem(props) {
           ) : null}
         </Card.Body>
       </Card>
-    </>
+    </Col>
   )
 }
 

@@ -1,6 +1,10 @@
 import { Button, Card, Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
+import { FaEdit } from "react-icons/fa"
+import { RiDeleteBin5Line } from "react-icons/ri"
+
+
 import { useContext, useState } from "react"
 import EngineerContext from "../Utils/EngineerContext"
 import ProjectEditModal from "./ProjectEditModal"
@@ -10,7 +14,6 @@ function ProjectItem(props) {
   const [deleteShow, setdeleteShow] = useState(false)
   const { project, fromProfile } = props
   const { likeProject, profile, projects, profileCompany } = useContext(EngineerContext)
-  if (!profile && !profileCompany) return <h1>Loading...</h1>
   // if (!profileCompany) return <h1>Loading...</h1>
 
   if (!project) return <h1>Loading...</h1>
@@ -21,17 +24,17 @@ function ProjectItem(props) {
         <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
           <Card.Img variant="top" src={project.photo} height="220px" className="projectitem" style={{margin:"15px"}}/>
           <Card.Body>
-            <Card.Title style={{textDecoration: "none"}}>{project.title}</Card.Title>
+            <Card.Title style={{textDecoration: "none"}}>Name :{project.title}</Card.Title>
             {/* <Card.Text>{project.description}</Card.Text> */}
           </Card.Body>
         </Link>{" "}
-        <Col>
+        <Col style={{textAlgin:"center",alignItems:"center"}}>
           {fromProfile ? (
             <>
-              <Button onClick={() => seteditShow(true)}>Edit project </Button>
-              <Button variant="danger" onClick={() => setdeleteShow(true)}>
+              <Button style={{textAlgin:"center",backgroundColor:"green",border:"none",fontSize:"15px"}} onClick={() => seteditShow(true)}><FaEdit/> Edit </Button>
+              <Button style={{border:"none",fontSize:"15px",marginLeft:"5px"}} variant="danger" onClick={() => setdeleteShow(true)}>
                 {" "}
-                delete Project{" "}
+               <RiDeleteBin5Line/> Delete
               </Button>
             </>
           ) : null}

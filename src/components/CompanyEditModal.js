@@ -32,7 +32,7 @@ function CompanyEditModal(props) {
             </Form.Group>
           </Modal.Body>
           <Form.Group as={Row} className="mb-3">
-            <Form.Label column md="3">
+            <Form.Label style={{paddingLeft:"25px"}} column md="3">
               password:
             </Form.Label>
             <Col md="8">
@@ -40,7 +40,7 @@ function CompanyEditModal(props) {
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
-            <Form.Label column md="3">
+            <Form.Label style={{paddingLeft:"25px"}} column md="3">
               avatar:
             </Form.Label>
             <Col md="8">
