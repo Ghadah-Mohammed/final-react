@@ -24,7 +24,7 @@ function ProjectItem(props) {
         <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
           <Card.Img variant="top" src={project.photo} height="220px" className="projectitem" style={{margin:"15px"}}/>
           <Card.Body>
-            <Card.Title style={{textDecoration: "none"}}>Name :{project.title}</Card.Title>
+            <Card.Title style={{textDecoration: "none"}}>{project.title}</Card.Title>
             {/* <Card.Text>{project.description}</Card.Text> */}
           </Card.Body>
         </Link>{" "}

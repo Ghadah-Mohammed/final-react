@@ -37,7 +37,9 @@ function OneCompany() {
         </Col>
         <Col>
           <h1>{company.name}</h1>
-          <p style={{ fontSize: "20px", color: "black" }}>{company.description}</p>
+          <div style={{ fontSize: "20px", color: "black",width: "50px"}}>
+          <p>{company.description}</p>
+          </div>
           {/* className="text-muted"  */}
         </Col>
       </Row>
@@ -48,23 +50,24 @@ function OneCompany() {
       </Row>*/}
 
       <Row mx-auto>
+      <h1 style={{ margin: "30px", textAlign: "center" }}>Engineers in this company</h1>
         {company.engineer.map(engineer1 => (
-          <Col style={{}}>
-            <>
-              <h1 style={{ margin: "40px", textAlign: "center" }}>Engineers in this company</h1>
+          <Col>
+            {/* <> */}
               {/* <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}> */}
               {/* <Link to={`/engineer/${engineer1._id}`}> */}
               <Image
                 //  variant="top"
                 src={engineer1.photo}
                 width="80px"
+                height="80px"
                 roundedCircle
                 // style={{ height: "400px", width: "400px", objectFit: "cover" }}
               />
               <h6 style={{ margin: "15px" }}> {engineer1.name}</h6>
               {/* </Link> */}
               {/* </Card> */}
-            </>
+            {/* </> */}
           </Col>
         ))}
       </Row>

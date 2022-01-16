@@ -13,7 +13,7 @@ import EngineerDeleteModal from "../components/EngineerDeleteModal"
 import { FaEdit } from "react-icons/fa"
 import { HiUserAdd } from "react-icons/hi"
 import { MdOutlinePostAdd } from "react-icons/md"
-
+import { RiDeleteBin5Line } from "react-icons/ri"
 function ProfileCompany(props) {
   const { offerId } = useParams
   const { offer } = props
@@ -28,7 +28,7 @@ function ProfileCompany(props) {
   return (
     <>
       <Row>
-        <div className="editProfile">
+        <div className="editProfileCompany">
           <Row>
             <Col>
               <Image
@@ -38,7 +38,7 @@ function ProfileCompany(props) {
                 src={profileCompany.avatar}
                 width="150px"
                 height="150px"
-                style={{ borderRadius: "10px", marginTop: "100px" }}
+                style={{ borderRadius: "10px", marginTop: "118px" }}
               />
             </Col>
             <h3 >{profileCompany.name}</h3>
@@ -86,7 +86,7 @@ function ProfileCompany(props) {
       </Row>
       <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>user offers</h3>
 
-      <Row md={4} style={{backgroundColor:"rgb(87, 85, 83)",height:"60vh"}} >
+      <Row md={4} style={{backgroundColor: `rgba(227, 227, 235, 1)`,height:"60vh"}} >
     
     
         {profileCompany.offer.map(offer1 => (
@@ -112,13 +112,15 @@ function ProfileCompany(props) {
         ))}
         {/* </Col> */}
       </Row>
+      
       <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Engineers</h3>
+      
       {profileCompany.engineer.map(engineer1 => (
-        <Row>
-          <Col>
-            <Image roundedCircle src={engineer1.photo} height="100px" width="100px" />
-            <h3>{engineer1.name}</h3>
-            <Button onClick={() => setdeleteEngShow(true)}>Delete engineer</Button>
+        <Row md={4}>
+          <Col  style={{marginLeft:"40px"}}>
+            <Image roundedCircle style={{margin:"10px"}} src={engineer1.photo} height="100px" width="100px" />
+            <h3 style={{margin:"10px"}}>{engineer1.name}</h3>
+            <Button style={{border:"none",fontSize:"15px",marginLeft:"0px"}} variant="danger" onClick={() => setdeleteEngShow(true)}>Delete engineer <RiDeleteBin5Line/> </Button>
           </Col>
           <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
         </Row>

@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
 import { Link } from "react-router-dom"
+import logo2 from "../assets/logo2.png"
 function NavbarItem() {
   const { logout } = useContext(EngineerContext)
 
@@ -10,12 +11,13 @@ function NavbarItem() {
     <div style={{ position: "absolute", top:0, zIndex: 10, width: "100vw", padding: "20px 60px" }} className="navbartop" >
       <Navbar variant="dark" className="navbarbr"  >
         {/* <Container> */}
-          {/* <Navbar.Brand> */}
+          <Navbar.Brand>
+          <img src={logo2} width="100" height="50"/>
+          </Navbar.Brand>
           <Nav className="ms-auto">
             <Link className="nav-link" to="/" style={{ textDecoration: "none", color: "white" }}>
               Companies
             </Link>
-          {/* </Navbar.Brand> */}
           <Link className="nav-link" className="nav-link" to="/projects" style={{ textDecoration: "none", color: "white" }}>
             Projects
           </Link>

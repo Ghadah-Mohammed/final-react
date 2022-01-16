@@ -325,21 +325,22 @@ justify-content: center;
 .linkOneCompany :hover {}
 
 .buttonSeeAllProject {
-    background-color: black;
-    border-radius: 40px;
-    padding: 15px;
-    color: white;
-    border-color: black;
-    text-align: center;
-    font-size: 25px;
+    background-color: black; 
+    border-radius: 80px;
+    padding: 5px;
+    color: rgb(230, 224, 224);
+    border: none;
+    /* text-align: center; */
+    font-size: 25px; 
 }
 
 .buttonSeeAllProject:hover {
 
     /* transform: scale(1.03); */
     /* transition: all .5s ease; */
-    opacity: 0.7;
-    /* color: black; */
+    opacity: 0.9;
+    /* color: rgb(131, 125, 125); */
+    /* background-color: azure; */
 
 }
 
@@ -377,7 +378,7 @@ left:0;
 width: 100px;
 }  */
 
-.editProfile {
+.editProfileCompany {
     color: white;
     text-align: center;
     /* background-color: rgb(183, 190, 190); */
@@ -392,3 +393,15 @@ width: 100px;
 /* .avatarCompany{
 
 } */
+
+.profileUser{
+    color: white;
+    text-align: center;
+    /* background-color: rgb(183, 190, 190); */
+    background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://images.pexels.com/photos/462387/pexels-photo-462387.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    /* opacity: 0.5;
+    object-fit: cover; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
