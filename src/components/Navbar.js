@@ -9,16 +9,16 @@ function NavbarItem() {
   return (
     
     <div style={{ position: "absolute", top:0, zIndex: 10, width: "100vw", padding: "20px 60px" }} className="navbartop" >
-      <Navbar variant="dark" className="navbarbr"  >
+      <Navbar variant="dark" className="navbarbr" style={{height:"30px"}}>
         {/* <Container> */}
           <Navbar.Brand>
           <img src={logo2} width="100" height="50"/>
           </Navbar.Brand>
           <Nav className="ms-auto">
-            <Link className="nav-link" to="/" style={{ textDecoration: "none", color: "white" }}>
+            <Link className="nav-link" to="/" style={{ textDecoration: "none"}}>
               Companies
             </Link>
-          <Link className="nav-link" className="nav-link" to="/projects" style={{ textDecoration: "none", color: "white" }}>
+          <Link className="nav-link" className="nav-link" to="/projects" style={{ textDecoration: "none" }}>
             Projects
           </Link>
           </Nav>

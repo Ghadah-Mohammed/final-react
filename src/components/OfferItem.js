@@ -12,11 +12,11 @@ function OfferItem(props) {
   if (!offer) return null
   return (
     <Col>
-      <Card style={{ height: "50vh",marginTop:"5vh",marginLeft:"5px" }}>
+      <Card style={{ height: "50vh", marginTop: "5vh", marginLeft: "5px" }}>
         <Card.Body style={{ fontWeight: "700" }}>
           <Card.Title>Title: {offer.title}</Card.Title>
           <Card.Text style={{ maxHeight: 100, overflowY: "scroll" }}> Description: {offer.description}</Card.Text>
-          <Card.Text > email: {offer.userId.email}</Card.Text>
+          {profileCompany ? <Card.Text> email: {offer.userId.email}</Card.Text> : null}
 
           <Card.Text> Status : {offer.status}</Card.Text>
           {profileCompany ? (

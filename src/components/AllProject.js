@@ -6,8 +6,8 @@ import EngineerContext from "../Utils/EngineerContext"
 function AllProject() {
   const { projects } = useContext(EngineerContext)
   return (
-    <>
-      <div style={{margin:"150px 15px"}}>
+    <div style={{backgroundColor:"", paddingTop:150, minHeight:"100vh"}}>
+      <div>
         <h4>Explor Project</h4>
         {/* <h2>all project</h2> */}
 
@@ -17,7 +17,7 @@ function AllProject() {
             ))}
         </Row>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -1,10 +1,8 @@
 import { Button, Card, Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import { FaEdit } from "react-icons/fa"
 import { RiDeleteBin5Line } from "react-icons/ri"
-
-
 import { useContext, useState } from "react"
 import EngineerContext from "../Utils/EngineerContext"
 import ProjectEditModal from "./ProjectEditModal"
@@ -20,11 +18,11 @@ function ProjectItem(props) {
 
   return (
     <>
-      <Card border="light" style={{ maxWidth: "350px", margin: "28px", border: "12px",}} >
+      <Card className="photoProject" border="light" style={{ maxWidth: "350px", margin: "28px"}} >
         <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
-          <Card.Img variant="top" src={project.photo} height="220px" className="projectitem" style={{margin:"15px"}}/>
+          <Card.Img  style={{marginTop:"10px"}} src={project.photo} height="220px"  />
           <Card.Body>
-            <Card.Title style={{textDecoration: "none"}}>{project.title}</Card.Title>
+            <Card.Title className="projectTitle" style={{textDecoration: "none"}}>{project.title}</Card.Title>
             {/* <Card.Text>{project.description}</Card.Text> */}
           </Card.Body>
         </Link>{" "}
@@ -40,12 +38,13 @@ function ProjectItem(props) {
           ) : null}
           {profile ? (
             <Button 
-              style={{ backgroundColor: "white", color: "red" }}
-              className="ms-1"
+            style={{ backgroundColor:"white",  fontSize: "px", border:"none" }}
+            className="ms-3"
               onClick={() => likeProject(project._id)}
             >
               {profile?.likes.find(like => like._id === project._id) ? 
-              <MdFavorite style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px" }} /> : <MdOutlineFavoriteBorder  style={{ color: "black", fontSize: "40px" }} />}
+              <MdFavorite className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"} } /> :
+               <MdFavoriteBorder  className="MdFavorite" style={{ color:"black", fontSize: "40px" , border:"none"}} />}
             </Button>
           ) : null}
         </Col>

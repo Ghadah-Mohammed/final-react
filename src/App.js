@@ -125,6 +125,8 @@ function App() {
   //logout
   const logout = () => {
     localStorage.clear()
+    setprofileCompany(null)
+    setProfile(null)
     console.log("logout success")
   }
 

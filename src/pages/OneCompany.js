@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Button, Card, Row, Col, Image, Container, ListGroup } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
-import { MdFavorite, MdOutlineFavorite } from "react-icons/md"
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 import AddComment from "../components/AddComment"
 import { RiDeleteBinLine } from "react-icons/ri"
@@ -33,12 +33,14 @@ function OneCompany() {
         }}
       >
         <Col md="4">
-          <img variant="top" src={company.avatar} width="100%" height="100%" style={{ borderRadius: "10px", margin: "20px" }} />
+          <img variant="top" src={company.avatar} width="100%" height="100%" style={{ borderRadius: "10px", margin: "20px",height: "90vh",
+    objectFit: "cover" }} />
         </Col>
         <Col>
           <h1>{company.name}</h1>
-          <div style={{ fontSize: "20px", color: "black",width: "50px"}}>
-          <p>{company.description}</p>
+          <div >
+          <p style={{ fontSize: "20px", color: "black",width: "48vw",
+    wordBreak:"break-word"}}>{company.description}</p>
           </div>
           {/* className="text-muted"  */}
         </Col>
@@ -49,10 +51,10 @@ function OneCompany() {
         ))}
       </Row>*/}
 
-      <Row mx-auto>
       <h1 style={{ margin: "30px", textAlign: "center" }}>Engineers in this company</h1>
+      <Row md={7} style={{display:"flex",justifyContent:"center"}}>
         {company.engineer.map(engineer1 => (
-          <Col>
+          <Col md={2}>
             {/* <> */}
               {/* <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}> */}
               {/* <Link to={`/engineer/${engineer1._id}`}> */}
@@ -76,7 +78,7 @@ function OneCompany() {
         {company.project.map(project1 => (
           <Col>
             <>
-              <Card style={{ border: "12px", margin: "100px 40px 20px 40px" }}>
+              <Card className="photoProject" border="light" style={{ maxWidth: "350px", margin: "28px"}}>
                 <Link className="linkOneCompany" to={`/project/${project1._id}`} style={{textDecoration:"none"}} >
                   <Card.Img
                     variant="top"
@@ -87,22 +89,22 @@ function OneCompany() {
                   />
                   {/* <Link to={`/project/${project1._id}`}></Link> */}
                   <Card.Title style={{ margin: "15px" ,color:"black" ,}}>{project1.title}</Card.Title>
-                  <Card.Body></Card.Body>
+
                 </Link>
               </Card>
               <Col style={{margin:"0px 30px"}}>
                 {profile ? (
                   <Button
-                    style={{ backgroundColor: "white", color: "red", fontSize: "px", border:"none" }}
+                    style={{ backgroundColor: "white",  fontSize: "px", border:"none" }}
                     className="ms-3"
                     onClick={() => likeProject(project1._id)}
                   >
                     {profile?.likes.find(like => like._id === project1._id) ? (
                     
                       
-                      <MdFavorite  className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"}} />
+                      <MdFavorite  className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"} }/>
                     ) : (
-                      <MdOutlineFavorite  className="MdFavorite" style={{ color: "black", fontSize: "40px" , border:"none"}}/>
+                      <MdFavoriteBorder  className="MdFavorite" style={{ color:"black", fontSize: "40px" , border:"none"}}/>
                     )}
                   </Button>
                 ) : null}

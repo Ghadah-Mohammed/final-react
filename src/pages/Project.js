@@ -11,7 +11,7 @@ function Project() {
 
   return (
     <>
-    <div>
+    <div style={{backgroundColor:"blanchedalmond"}}>
       <Row mx-auto>
         {projects.map(project1 => (
           <Col>
@@ -25,18 +25,18 @@ function Project() {
                   style={{ height: "400px", width: "400px", objectFit: "cover" }}
                 />
                 <Link to={`/project/${project1._id}`}></Link>
-                <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title>
+                <Card.Title className="titleProject" style={{ margin: "15px" }}>{project1.title}</Card.Title>
                 {/* <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title> */}
               </Card>
               <Col>
-                <Button  style={{ backgroundColor: "white", color: "red", fontSize: "px", border:"none" }}
+                <Button  style={{ backgroundColor: "white",  fontSize: "px", border:"none" }}
                     className="ms-3"
                     onClick={() => likeProject(project1._id)}
                 >
                   {profile?.likes.find(like => like._id === project1._id) ? (
-                    <MdFavorite className="MdFavorite" style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"}}/>
+                    <MdFavorite className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"} }/>
                   ) : (
-                    <MdOutlineFavorite className="MdFavorite" style={{ color: "black", fontSize: "40px" , border:"none"}}/>
+                    <MdOutlineFavorite className="MdFavorite" style={{ color:"black", fontSize: "40px" , border:"none"}}/>
                   )}
                 </Button>
               </Col>

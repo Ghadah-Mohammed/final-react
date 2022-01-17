@@ -16,7 +16,7 @@ body {
     display: flex;
     /* align-items: center; */
     margin-right: auto;
-    margin-top: 89px;
+    margin-top: 105px;
     margin-left: auto;
 
     /* 
@@ -96,13 +96,15 @@ body {
     display: flex;
     /* align-items: center; */
     /* margin-right: 500px; */
-    margin-top: 89px;
-    margin-left: 350px;
+    margin-top: 105px;
+    /* margin-left: 350px; */
     /* margin-right: 500px; */
     /* 
     background-color: rgb(244, 244, 247);
     border: 1px solid; */
     width: 500px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .loginform {
@@ -286,7 +288,7 @@ justify-content: center;
 
 
 .footer {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -325,13 +327,13 @@ justify-content: center;
 .linkOneCompany :hover {}
 
 .buttonSeeAllProject {
-    background-color: black; 
+    background-color: black;
     border-radius: 80px;
     padding: 5px;
     color: rgb(230, 224, 224);
     border: none;
     /* text-align: center; */
-    font-size: 25px; 
+    font-size: 25px;
 }
 
 .buttonSeeAllProject:hover {
@@ -394,7 +396,7 @@ width: 100px;
 
 } */
 
-.profileUser{
+.profileUser {
     color: white;
     text-align: center;
     /* background-color: rgb(183, 190, 190); */
@@ -404,4 +406,32 @@ width: 100px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+
+.btn:focus, .btn:active:focus, .btn.active:focus,
+.btn.focus, .btn:active.focus, .btn.active.focus {
+    outline: none !important;
+    box-shadow: none !important
+}
+
+
+/* .titleProject{
+color: brown;
+} */
+
+.projectTitle:hover{
+    color: rgb(56, 56, 56);
+}
+ /* .photoProject{
+    box-shadow:3px 3px 10px 2px #000000bb
+} */
+.photoProject{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+} 
+.photoProject:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
 }

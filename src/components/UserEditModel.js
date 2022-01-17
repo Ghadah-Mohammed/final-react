@@ -18,7 +18,7 @@ function UserEditModal(props) {
                 First Name:
               </Form.Label>
               <Col md="8">
-                <Form.Control type="text" name="firstName" defaultValue={user.firstName} required />
+                <Form.Control type="text" name="firstName" defaultValue={user.firstName} />
               </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3">
@@ -26,24 +26,24 @@ function UserEditModal(props) {
                 Last Name:
               </Form.Label>
               <Col md="8">
-                <Form.Control type="text" name="lastName" defaultValue={user.lastName} required />
+                <Form.Control type="text" name="lastName" defaultValue={user.lastName}  />
               </Col>
             </Form.Group>
           </Modal.Body>
           <Form.Group as={Row} className="mb-3">
-            <Form.Label column md="3">
+            <Form.Label style={{paddingLeft:"25px"}} column md="3">
               password:
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="password" defaultValue={user.password} required />
+              <Form.Control type="password" name="password"/>
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
-            <Form.Label column md="3">
+            <Form.Label style={{paddingLeft:"25px"}} column md="3">
               avatar:
             </Form.Label>
             <Col md="8">
-              <Form.Control type="text" name="avatar" defaultValue={user.avatar} required />
+              <Form.Control type="text" name="avatar" defaultValue={user.avatar} />
             </Col>
           </Form.Group>
           <Modal.Footer>

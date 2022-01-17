@@ -14,6 +14,7 @@ import { FaEdit } from "react-icons/fa"
 import { HiUserAdd } from "react-icons/hi"
 import { MdOutlinePostAdd } from "react-icons/md"
 import { RiDeleteBin5Line } from "react-icons/ri"
+import EngineerItem from "../components/EngineerItem"
 function ProfileCompany(props) {
   const { offerId } = useParams
   const { offer } = props
@@ -22,7 +23,6 @@ function ProfileCompany(props) {
   const [show, setShow] = useState(false)
   const [addshow, setaddshow] = useState(false)
   const [addengshow, setaddengShow] = useState(false)
-  const [deleteEngshow, setdeleteEngShow] = useState(false)
   // console.log(profileCompany.engineer)
   if (!profileCompany) return <h1>Loading...</h1>
   return (
@@ -115,16 +115,11 @@ function ProfileCompany(props) {
       
       <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Engineers</h3>
       
+      <Row md={5}>
       {profileCompany.engineer.map(engineer1 => (
-        <Row md={4}>
-          <Col  style={{marginLeft:"40px"}}>
-            <Image roundedCircle style={{margin:"10px"}} src={engineer1.photo} height="100px" width="100px" />
-            <h3 style={{margin:"10px"}}>{engineer1.name}</h3>
-            <Button style={{border:"none",fontSize:"15px",marginLeft:"0px"}} variant="danger" onClick={() => setdeleteEngShow(true)}>Delete engineer <RiDeleteBin5Line/> </Button>
-          </Col>
-          <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
-        </Row>
-      ))}
+        <EngineerItem engineer1={engineer1}/>
+          ))}
+          </Row>
 
       <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
       <ProjectAddModal show={addshow} setShow={setaddshow} />

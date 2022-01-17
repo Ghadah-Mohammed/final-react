@@ -6,7 +6,7 @@ import { AiOutlineMail } from "react-icons/ai"
 import { FcLike } from "react-icons/fc"
 function Footer() {
   return (
-    <div style={{marginTop:"50px" , Button:"0"}} className="footer">
+    <div style={{ Button:"0",marginTop:"20px"}} className="footer">
       <Col>
         {/* <img src={} width="100" height="50" className="d-inline-block align-top" alt="React Bootstrap logo" /> */}
       </Col>
