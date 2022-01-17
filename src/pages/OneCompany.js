@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Button, Card, Row, Col, Image, Container, ListGroup } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
-import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
+import { MdFavorite, MdOutlineFavorite } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 import AddComment from "../components/AddComment"
 import { RiDeleteBinLine } from "react-icons/ri"
@@ -102,7 +102,7 @@ function OneCompany() {
                       
                       <MdFavorite  className="MdFavorite"   style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"}} />
                     ) : (
-                      <MdOutlineFavoriteBorder  className="MdFavorite" style={{ color: "black", fontSize: "40px" , border:"none"}}/>
+                      <MdOutlineFavorite  className="MdFavorite" style={{ color: "black", fontSize: "40px" , border:"none"}}/>
                     )}
                   </Button>
                 ) : null}

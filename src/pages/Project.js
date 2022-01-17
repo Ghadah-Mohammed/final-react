@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Button, Card, Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
+import { MdFavorite, MdOutlineFavorite } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 
 function Project() {
@@ -29,13 +29,14 @@ function Project() {
                 {/* <Card.Title style={{ margin: "15px" }}>{project1.title}</Card.Title> */}
               </Card>
               <Col>
-                <Button style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px"  ,backgroundColor:"revert"}}
-                  onClick={() => likeProject(project1._id)}
+                <Button  style={{ backgroundColor: "white", color: "red", fontSize: "px", border:"none" }}
+                    className="ms-3"
+                    onClick={() => likeProject(project1._id)}
                 >
                   {profile?.likes.find(like => like._id === project1._id) ? (
-                    <MdFavorite />
+                    <MdFavorite className="MdFavorite" style={{ color: `rgba(190, 64, 26, 0.911)`, fontSize: "40px", border:"none"}}/>
                   ) : (
-                    <MdOutlineFavoriteBorder style={{ color: "black", fontSize: "40px" }}/>
+                    <MdOutlineFavorite className="MdFavorite" style={{ color: "black", fontSize: "40px" , border:"none"}}/>
                   )}
                 </Button>
               </Col>
