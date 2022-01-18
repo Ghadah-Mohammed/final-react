@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap');
+
+
 * {
     /* box-sizing: border-box; */
     margin: 0px;
     padding: 0px;
+    font-family:'Rubik', sans-serif;
 }
 
 body {
@@ -16,7 +20,7 @@ body {
     display: flex;
     /* align-items: center; */
     margin-right: auto;
-    margin-top: 105px;
+    margin-top: 80px;
     margin-left: auto;
 
     /* 
@@ -96,7 +100,7 @@ body {
     display: flex;
     /* align-items: center; */
     /* margin-right: 500px; */
-    margin-top: 105px;
+    margin-top: 80px;
     /* margin-left: 350px; */
     /* margin-right: 500px; */
     /* 
@@ -239,8 +243,9 @@ img:hover {
 
 .overlay {
     background: #000000bb;
+    /* background: #271e1e62; */
     width: 100%;
-    height: 100%;
+    height: 99%;
     /* height: 80%; */
     position: absolute;
     top: 0;
@@ -320,7 +325,7 @@ justify-content: center;
 
 .projectitem {
     transition: .3s ease-in-out;
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
 }
 
 
@@ -384,7 +389,7 @@ width: 100px;
     color: white;
     text-align: center;
     /* background-color: rgb(183, 190, 190); */
-    background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://images.pexels.com/photos/462387/pexels-photo-462387.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://cdn.pixabay.com/photo/2016/11/18/14/01/bridge-1834754_1280.jpg");
     /* opacity: 0.5; */
     /* object-fit: cover; */
     background-repeat: no-repeat;
@@ -423,6 +428,9 @@ color: brown;
 .projectTitle:hover{
     color: rgb(56, 56, 56);
 }
+.projectTitle2:hover{
+    color: rgb(56, 56, 56);
+}
  /* .photoProject{
     box-shadow:3px 3px 10px 2px #000000bb
 } */
@@ -435,3 +443,22 @@ color: brown;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
 }
+
+.projectitem{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.445);
+    transition: 0.3s;
+    /* color: rgb(90, 92, 94); */
+}
+
+.projectTitle2{
+    color: black;
+
+}
+
+.projectTitle2:hover{
+    box-shadow:rgba(0,0,0,0.2);
+    color: rgba(255,255,255, 0.8);
+    color:rgba(62, 62, 65, 0.5)
+}
+
+

@@ -55,7 +55,8 @@ function OneProject() {
       <Col style={{marginLeft:"40px"}}>
         {/* <h1 style={{textDecorationColor:"none",marginLeft:"40px"}}>{project.title}</h1> */}
         <h3 style={{marginLeft:"40px"}}>Description:</h3>
-        <p className="text-muted" style={{marginLeft:"40px",border:""}}>{project.description}</p>
+        <p className="text-muted" style={{marginLeft:"40px",border:"",width: "48vw",
+    wordBreak:"break-word"}}>{project.description}</p>
         <Button style={{marginLeft:"40px",marginBottom:"50px"}} onClick={()=>setsendshow(true)}> send offer! <BiSend /></Button>
       </Col>
       <SendOfferModal show={sendshow} setShow={setsendshow} company={project} project={project} />

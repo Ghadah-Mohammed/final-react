@@ -12,13 +12,16 @@ function OfferItem(props) {
   if (!offer) return null
   return (
     <Col>
-      <Card style={{ height: "50vh", marginTop: "5vh", marginLeft: "5px" }}>
+      <Card style={{ height: "55vh", marginTop: "3vh", marginLeft: "5px" }}>
         <Card.Body style={{ fontWeight: "700" }}>
-          <Card.Title>Title: {offer.title}</Card.Title>
-          <Card.Text style={{ maxHeight: 100, overflowY: "scroll" }}> Description: {offer.description}</Card.Text>
-          {profileCompany ? <Card.Text> email: {offer.userId.email}</Card.Text> : null}
+         
+          <Card.Text>title: <p style={{color:"rgb(90, 92, 94)"}}>{offer.title}</p></Card.Text>
+          
+          <Card.Text style={{ maxHeight: 80, overflowY: "scroll" }}>description:<p style={{color:"rgb(90, 92, 94)"}}>{offer.description}</p></Card.Text>
+          
+          {profileCompany ? <Card.Text>email:<p style={{color:"rgb(90, 92, 94)"}}>{offer.userId.email}</p></Card.Text> : null}
 
-          <Card.Text> Status : {offer.status}</Card.Text>
+          <Card.Text> Status:<p style={{color:"rgb(90, 92, 94)"}}>{offer.status}</p></Card.Text>
           {profileCompany ? (
             <div style={{ position: "absolute", bottom: "2px" }}>
               {offer.status == "pending" ? (
@@ -29,6 +32,7 @@ function OfferItem(props) {
                       backgroundColor: "rgb(87, 85, 83)",
                       border: "none",
                       fontSize: "15px",
+                      marginBottom:"5px"
                     }}
                     onClick={() => progressOffer(offer._id)}
                   >
@@ -37,8 +41,9 @@ function OfferItem(props) {
                     progress
                   </Button>
                   <Button
-                    style={{ border: "none", fontSize: "15px", marginLeft: "5px" }}
-                    variant="danger"
+                    style={{ border: "none", fontSize: "15px", marginLeft: "5px",marginBottom:"5px",backgroundColor:"rgb(179, 1, 1)" }}
+                    // variant="danger"
+                    
                     onClick={() => refusedOffer(offer._id)}
                   >
                     {" "}
@@ -48,27 +53,27 @@ function OfferItem(props) {
                 </>
               ) : offer.status == "progress" ? (
                 <>
-                  <Button style={{ textAlgin: "center", backgroundColor: "green", border: "none", fontSize: "15px" }}>
+                  <Button style={{ textAlgin: "center", backgroundColor:"rgb(13, 63, 40)", border: "none", fontSize: "15px",marginBottom:"5px" }}>
                     completed
                   </Button>
                   <Button
-                    style={{ border: "none", fontSize: "15px", marginLeft: "5px" }}
-                    variant="danger"
+                    style={{ border: "none", fontSize: "15px", marginLeft: "5px",marginBottom:"5px" ,backgroundColor:"rgb(179, 1, 1)"}}
+                    // variant="danger"
                     onClick={() => deleteOffer(offer._id)}
                   >
                     {" "}
-                    <RiDeleteBin5Line /> Delete
+                    <RiDeleteBin5Line />
                   </Button>
                 </>
               ) : offer.status == "cancel" || offer.status == "refused" ? (
                 <>
                   <Button
-                    style={{ border: "none", fontSize: "15px", marginLeft: "5px" }}
+                    style={{ border: "none", fontSize: "15px", marginLeft: "100px",marginBottom:"5px" ,backgroundColor:"rgb(179, 1, 1)"}}
                     variant="danger"
                     onClick={() => deleteOffer(offer._id)}
                   >
                     {" "}
-                    <RiDeleteBin5Line /> Delete
+                    <RiDeleteBin5Line /> 
                   </Button>
                 </>
               ) : null}

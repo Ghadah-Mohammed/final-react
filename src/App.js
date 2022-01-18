@@ -188,6 +188,7 @@ function App() {
       },
     })
     setprofileCompany(response.data)
+    getProjects()
     console.log(profileCompany)
     console.log(response.data)
   }
@@ -297,8 +298,8 @@ function App() {
         },
       })
       toast.success("project deleted")
-      getProjects()
       getProfileCompany()
+      getProjects()
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
@@ -447,7 +448,6 @@ function App() {
       })
       toast.success("engineer deleted")
       getProfileCompany()
-      getProfile()
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)

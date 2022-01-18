@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Button, Col, Form ,Row } from "react-bootstrap";
 import EngineerContext from "../Utils/EngineerContext";
-
+import { MdAddComment } from "react-icons/md";
 
 function AddComment(props) {
   const {addComment}=useContext(EngineerContext)
@@ -19,7 +19,7 @@ function AddComment(props) {
               <Form.Control style={{padding:"7px" ,margin: "10px 30px 20px "}} as="textarea" name="comment"  required />
             </Col>
             <Col md={{ span: 10, offset: 2 }}>
-              <Button type="submit">Add</Button>
+              <Button type="submit"> <MdAddComment/>Add</Button>
             </Col>
           
           </Form.Group>

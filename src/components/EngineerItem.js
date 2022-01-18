@@ -12,8 +12,8 @@ function EngineerItem(props) {
         <>
           <Col>
             <Image roundedCircle style={{margin:"10px"}} src={engineer1.photo} height="100px" width="100px" />
-            <h3 style={{margin:"10px"}}>{engineer1.name}</h3>
-            <Button style={{border:"none",fontSize:"15px",marginLeft:"0px"}} variant="danger" onClick={() => setdeleteEngShow(true)}>Delete engineer <RiDeleteBin5Line/> </Button>
+            <h6 style={{margin:"10px"}}>{engineer1.name}</h6>
+            <Button style={{border:"none",fontSize:"15px",marginLeft:"3px",backgroundColor:"rgb(179, 1, 1)"}} variant="danger" onClick={() => setdeleteEngShow(true)}><RiDeleteBin5Line/> engineer  </Button>
           </Col>
           <EngineerDeleteModal show={deleteEngshow} setShow={setdeleteEngShow} engineer={engineer1} />
         </>

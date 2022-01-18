@@ -20,7 +20,7 @@ function ProjectItem(props) {
     <>
       <Card className="photoProject" border="light" style={{ maxWidth: "350px", margin: "28px"}} >
         <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
-          <Card.Img  style={{marginTop:"10px"}} src={project.photo} height="220px"  />
+          <Card.Img  style={{marginTop:"10px"}} src={project.photo} height="220px" className="projectitem"  />
           <Card.Body>
             <Card.Title className="projectTitle" style={{textDecoration: "none"}}>{project.title}</Card.Title>
             {/* <Card.Text>{project.description}</Card.Text> */}
@@ -29,11 +29,13 @@ function ProjectItem(props) {
         <Col style={{textAlgin:"center",alignItems:"center"}}>
           {fromProfile ? (
             <>
-              <Button style={{textAlgin:"center",backgroundColor:"green",border:"none",fontSize:"15px"}} onClick={() => seteditShow(true)}><FaEdit/> Edit </Button>
-              <Button style={{border:"none",fontSize:"15px",marginLeft:"5px"}} variant="danger" onClick={() => setdeleteShow(true)}>
+            <div>
+              <Button style={{textAlgin:"center",backgroundColor:"rgb(13, 63, 40)",border:"none",fontSize:"15px",marginBottom:"4px"}} onClick={() => seteditShow(true)}><FaEdit/> </Button>
+              <Button style={{border:"none",fontSize:"15px",marginLeft:"2px",backgroundColor:"rgb(179, 1, 1)",marginBottom:"4px"}} onClick={() => setdeleteShow(true)}>
                 {" "}
-               <RiDeleteBin5Line/> Delete
+               <RiDeleteBin5Line/>
               </Button>
+              </div>
             </>
           ) : null}
           {profile ? (

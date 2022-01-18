@@ -42,10 +42,10 @@ function SignUpcompany() {
           <div style={{ height: "40%", textDecoration: "none" }}>
             <h1>signup as User</h1>
             <p>Enter your personal details and join us!</p>
-            <button>
+            
               {" "}
-              <Link to="/signup">Sign Now! </Link>
-            </button>
+              <Link to="/signup"><button>Sign Now!</button> </Link>
+            
           </div>
         </section>
       </div>

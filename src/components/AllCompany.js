@@ -9,7 +9,7 @@ function AllCompany() {
   return (
     <>
     <div className="header">
-    <h1 style={{fontSize:"50px",fontFamily:"-moz-initial"}}>You can send a request to any company to do your project</h1>
+    <h1 style={{fontSize:"45px"}}>You can send a request to any company to do your project</h1>
     <div className="buttonAllproject">
     <Link className="buttonSeeAllProject" to={`/projects`}>
     <button className="buttonSeeAllProject" style={{ }}>See All Projects</button>
@@ -17,7 +17,7 @@ function AllCompany() {
     </div>
     </div>
       <div className="allcompany" style={{ height: "80vh" ,marginTop:"10px",fontSize:"30px"}}>
-        <h4 style={{fontFamily:"-moz-initial",fontSize:"35px"}}>Explor Company</h4>
+        <h4 style={{fontSize:"35px",marginLeft:"15px"}}>Explor Company</h4>
         <Row md="4" style={{backgroundColor:`rgba(227, 227, 235,1 )`}}>
            
           {companies.map(company => (

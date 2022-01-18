@@ -11,10 +11,13 @@ function LoginUser() {
         <section className="loginarea " style={{ height: "400px" }}>
           <h1>login as company</h1>
           <p>Enter your company details and join us!</p>
-          <button>
             {" "}
-            <Link to="/logincompany">Login Now! </Link>
-          </button>
+          {/* <button> */}
+            <Link to="/logincompany">
+              
+            <button className="buttoninlog"style={{color:"black"}} >Login Now!</button>
+             </Link>
+          {/* </button> */}
         </section>
         <section className="loginform ">
           <Form onSubmit={login} style={{ height: "300px" }}>
