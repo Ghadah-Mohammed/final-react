@@ -38,14 +38,17 @@ function ProfileCompany(props) {
                 src={profileCompany.avatar}
                 width="150px"
                 height="150px"
-                style={{ borderRadius: "10px", marginTop: "118px" }}
+                style={{ borderRadius: "10px", marginTop: "90px" }}
               />
             </Col>
             <h3 >{profileCompany.name}</h3>
             <p>
               {profileCompany.email} <FaEdit onClick={() => setShow(true)} style={{}} />
             </p>
-            <p>{profileCompany.description} </p>
+            <div style={{width: "100vw",display:"flex",justifyContent:"center" }}>
+              
+            <p style={{width: "50%",  wordBreak: "break-word"}} >{profileCompany.description} </p>
+            </div>
 
             <Col>
               {/* variant="info" className="me-2"  */}

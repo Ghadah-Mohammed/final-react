@@ -6,6 +6,7 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 import AddComment from "../components/AddComment"
 import { RiDeleteBinLine } from "react-icons/ri"
+import { toast } from "react-toastify"
 function OneCompany() {
   const { deleteComment } = useContext(EngineerContext)
   const { companyId } = useParams()
@@ -62,7 +63,7 @@ function OneCompany() {
       <h2 style={{ margin: "30px", textAlign: "center" }}>Engineers in this company</h2>
       <Row md={7} style={{ display: "flex", justifyContent: "center" }}>
         {company.engineer.map(engineer1 => (
-          <Col md={2}>
+          <Col md={1,2}>
             {/* <> */}
             {/* <Card style={{ border: "12px", margin: "300px 40px 20px 40px" }}> */}
             {/* <Link to={`/engineer/${engineer1._id}`}> */}
@@ -121,7 +122,15 @@ function OneCompany() {
                       />
                     )}
                   </Button>
-                ) : null}
+                ) : (
+                  <Button
+                    style={{ backgroundColor: "white", fontSize: "px", border: "none" }}
+                    className="ms-3"
+                    onClick={() => toast.info("login first")}
+                  >
+                    <MdFavoriteBorder className="MdFavorite" style={{ color: "black", fontSize: "40px", border: "none" }} />
+                  </Button>
+                )}
               </Col>
             </>
           </Col>

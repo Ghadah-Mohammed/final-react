@@ -7,7 +7,7 @@ import { useRef } from "react"
 function Home() {
   
   return (
-    <>
+    <div className="mainpage">
       {/* <CarouselItem /> */}
       <section className="onshowcase">
      
@@ -15,7 +15,7 @@ function Home() {
       </section>
      {/* <h5 style={{fontSize:"40px",fontWight:"800",color:"black"}}>__________________________________________________________________________________________</h5> */}
         <AllCompany />
-    </>
+    </div>
   )
 }
 

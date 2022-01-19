@@ -16,7 +16,7 @@ function ProfileUser() {
     <Row>
       <div className="profileUser">
       <Col >
-        <Image className="avatarUser" variant="top" roundedCircle src={profile.avatar} width="150px" height="150px" style={{ borderRadius: "10px", marginTop: "118px" }} />
+        <Image className="avatarUser" variant="top" roundedCircle src={profile.avatar} width="150px" height="150px" style={{ borderRadius: "10px", marginTop:"90px" }} />
       
         <h5>
           {profile.firstName} {profile.lastName}

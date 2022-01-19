@@ -37,7 +37,7 @@ function OneProject() {
         </Col>
       </Row>
       <Row>
-        <Col md="8" className="mx-auto" style={{margin:"76px"}}>
+        <Col md="8" className="mx-auto" style={{margin:"40px"}}>
           <Carousel>
             {project.photo?.map(project1 => (
               <Carousel.Item>
