@@ -96,8 +96,8 @@ function App() {
 
       navigate("/login")
     } catch (error) {
-      if (error.response) console.log(error.response.data)
-      else console.log(error)
+      toast.error(error.response.data)
+
     }
   }
 
@@ -147,8 +147,7 @@ function App() {
 
       navigate("/logincompany")
     } catch (error) {
-      if (error.response) toast.error(error.response.data)
-      else console.log(error)
+      toast.error(error.response.data)
     }
   }
 
@@ -528,31 +527,31 @@ function App() {
         <Navbar />
         <ToastContainer />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/companies" element={<AllCompany />} /> */}
-            <Route path="/company/:companyId" element={<OneCompany />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/profile"
-              element={
-                localStorage.tokenEngineer ? (
-                  <ProfileUser />
-                ) : localStorage.tokenCompany ? (
-                  <ProfileCompany />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
-            />
-            {/* <Route path="/profile" element={<ProfileUser />} /> */}
-            {/* <Route path="/profile" element={localStorage.tokenCompany ? <ProfileCompany /> : null} /> */}
-            <Route path="/projects" element={<AllProject />} />
-            <Route path="/project/:projectId" element={<OneProject />} />
-            <Route path="/signupcompany" element={<SignUpCompany />} />
-            <Route path="/logincompany" element={<LoginCompany />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/companies" element={<AllCompany />} /> */}
+          <Route path="/company/:companyId" element={<OneCompany />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/profile"
+            element={
+              localStorage.tokenEngineer ? (
+                <ProfileUser />
+              ) : localStorage.tokenCompany ? (
+                <ProfileCompany />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+          {/* <Route path="/profile" element={<ProfileUser />} /> */}
+          {/* <Route path="/profile" element={localStorage.tokenCompany ? <ProfileCompany /> : null} /> */}
+          <Route path="/projects" element={<AllProject />} />
+          <Route path="/project/:projectId" element={<OneProject />} />
+          <Route path="/signupcompany" element={<SignUpCompany />} />
+          <Route path="/logincompany" element={<LoginCompany />} />
+        </Routes>
 
         <Footer />
       </EngineerContext.Provider>

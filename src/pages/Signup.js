@@ -30,7 +30,7 @@ function SignUp() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Photo</Form.Label>
-              <Form.Control required type="url" name="avatar" placeholder="Photo" />
+              <Form.Control type="url" name="avatar" placeholder="Photo" />
             </Form.Group>
             <button required type="submit">
               Sign
@@ -41,11 +41,10 @@ function SignUp() {
         <section className="signuparea">
           <div style={{ height: "40%", textDecoration: "none" }}>
             <h1>sign Up as Company</h1>
-            <p>Enter your Company details and join us!</p>
-            
-              {" "}
-              <Link to="/signupcompany"><button>Sign Now!</button> </Link>
-            
+            <p>Enter your Company details and join us!</p>{" "}
+            <Link to="/signupcompany">
+              <button>Sign Now!</button>{" "}
+            </Link>
           </div>
         </section>
       </div>

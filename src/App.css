@@ -500,7 +500,7 @@ color: brown;
 
     text-align: center;
     padding: 30px;
-
+    margin-top: auto;
     /* margin-top: 400px; */
     position: relative;
     bottom: 0;
@@ -509,7 +509,7 @@ color: brown;
 
 
 .mainpage {
-    margin-bottom: 400px;
+    /* margin-bottom: 400px; */
     min-height: 100vh;
 }
 
