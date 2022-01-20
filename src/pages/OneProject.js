@@ -41,7 +41,7 @@ function OneProject() {
           <Carousel>
             {project.photo?.map(project1 => (
               <Carousel.Item>
-                <img className="d-block w-100" style={{ height: "600px" }} src={project1} alt="First slide" />
+                <img className="d-block w-100" style={{ height: "500px" }} src={project1} alt="First slide" />
               </Carousel.Item>
             ))}
           </Carousel>

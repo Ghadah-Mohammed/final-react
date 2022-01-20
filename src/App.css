@@ -386,12 +386,10 @@ width: 100px;
 }  */
 
 .editProfileCompany {
-    color: white;
+    /* color: white; */
     text-align: center;
-    /* background-color: rgb(183, 190, 190); */
-    background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://cdn.pixabay.com/photo/2016/11/18/14/01/bridge-1834754_1280.jpg");
-    /* opacity: 0.5; */
-    /* object-fit: cover; */
+    /* background-image: linear-gradient(rgb(0, 0, 0.72), rgba(0, 0, 0, 0.425)), url("https://cdn.pixabay.com/photo/2016/11/18/14/01/bridge-1834754_1280.jpg"); */
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -402,12 +400,10 @@ width: 100px;
 } */
 
 .profileUser {
-    color: white;
+    /* color: white; */
     text-align: center;
-    /* background-color: rgb(183, 190, 190); */
-    background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://images.pexels.com/photos/5209912/pexels-photo-5209912.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    /* opacity: 0.5; */
-    /* object-fit: cover; */
+    /* background-color: rgba(0, 0, 0, 0.185); */
+    /* background-image: linear-gradient(rgb(0, 0, 0.72), rgb(0, 0, 0, 0.12)), url("https://images.pexels.com/photos/5209912/pexels-photo-5209912.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
     background-repeat: no-repeat;
     background-position: center;
 
@@ -501,7 +497,7 @@ color: brown;
     text-align: center;
     padding: 30px;
     margin-top: auto;
-    /* margin-top: 400px; */
+    margin-top: 100px;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -525,4 +521,5 @@ body {
     display: block;
     position: relative;
     /* padding-bottom: 100px; */
+
 }

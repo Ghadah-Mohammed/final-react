@@ -21,7 +21,7 @@ function ProjectItem(props) {
     <>
       <Card className="photoProject" border="light" style={{ maxWidth: "350px", margin: "28px" }}>
         <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
-          <Card.Img style={{ marginTop: "10px" }} src={project.photo} height="220px" className="projectitem" />
+          <Card.Img style={{ marginTop: "10px" }} src={project.photo[0]} height="220px" className="projectitem" />
           <Card.Body>
             <Card.Title className="projectTitle" style={{ textDecoration: "none" }}>
               {project.title}
@@ -76,7 +76,7 @@ function ProjectItem(props) {
                 <MdFavoriteBorder className="MdFavorite" style={{ color: "black", fontSize: "40px", border: "none" }} />
               )}
             </Button>
-          ) : (
+          ) : profileCompany ? null : (
             <Button
               style={{ backgroundColor: "white", fontSize: "px", border: "none" }}
               className="ms-3"

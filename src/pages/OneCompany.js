@@ -2,11 +2,12 @@ import { useContext, useEffect } from "react"
 import { Button, Card, Row, Col, Image, Container, ListGroup } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
+import { MdFavorite, MdFavoriteBorder, MdSafetyDivider } from "react-icons/md"
 import EngineerContext from "../Utils/EngineerContext"
 import AddComment from "../components/AddComment"
 import { RiDeleteBinLine } from "react-icons/ri"
 import { toast } from "react-toastify"
+import ProfileCompany from "./ProfileCompany"
 function OneCompany() {
   const { deleteComment } = useContext(EngineerContext)
   const { companyId } = useParams()
@@ -26,7 +27,7 @@ function OneCompany() {
       {/* linear-gradient(rgba(0,0,0,0.8), */}
       <Row
         style={{
-          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.9)), url("${company.avatar}")`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.507), rgba(255,255,255, 0.9)), url("${company.avatar}")`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -47,7 +48,7 @@ function OneCompany() {
         <Col>
           <h1>{company.name}</h1>
           <div>
-            <p style={{ fontSize: "20px", color: "black", width: "48vw", wordBreak: "break-word" }}>
+            <p style={{ fontSize: "15px", color: "black", width: "48vw", wordBreak: "break-word" }}>
               {company.description}
             </p>
           </div>
@@ -91,7 +92,7 @@ function OneCompany() {
                 <Link className="linkOneCompany" to={`/project/${project1._id}`} style={{ textDecoration: "none" }}>
                   <Card.Img
                     variant="top"
-                    src={project1.photo}
+                    src={project1.photo[0]}
                     style={{ height: "280px", width: "300px", objectFit: "cover" }}
                     width="80px"
                     roundedCircle
@@ -122,7 +123,7 @@ function OneCompany() {
                       />
                     )}
                   </Button>
-                ) : (
+                ) :ProfileCompany?null: (
                   <Button
                     style={{ backgroundColor: "white", fontSize: "px", border: "none" }}
                     className="ms-3"

@@ -89,7 +89,7 @@ function App() {
         lastName: form.elements.lastName.value,
         password: form.elements.password.value,
         email: form.elements.email.value,
-        avatar: form.elements.avatar.value,
+        avatar: form.elements.avatar.value || undefined,
       }
       await axios.post("http://localhost:5000/api/auth/signup", userBody)
       console.log("signup success")
@@ -203,6 +203,7 @@ function App() {
         description: form.elements.description.value,
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
+        // photo: form.elements.photo.value.split(","),
       }
       await axios.put(`http://localhost:5000/api/company/profile`, userBody, {
         headers: {
@@ -211,7 +212,6 @@ function App() {
       })
       getProfileCompany()
       getCompanies()
-      console.log("hhh")
     } catch (error) {
       if (error.response) toast.error(error.response.data)
       else console.log(error)
@@ -273,6 +273,8 @@ function App() {
         title: form.elements.title.value,
         photo: form.elements.photo.value,
         description: form.elements.description.value,
+         photo: form.elements.photo.value.split(","),
+
       }
       await axios.put(`http://localhost:5000/api/project/${projectId}`, projectBody, {
         headers: {
