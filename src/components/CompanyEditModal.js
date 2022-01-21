@@ -9,7 +9,7 @@ function CompanyEditModal(props) {
   return (
     <>
       <Modal show={show} onHide={() => setShow(false)}>
-        <Form className="mt-5" onSubmit={e => editProfileCompany(e)}>
+        <Form  onSubmit={e => editProfileCompany(e)}>
           <Modal.Header closeButton>
             <Modal.Title>Edit information company</Modal.Title>
           </Modal.Header>
