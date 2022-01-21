@@ -8,7 +8,7 @@ function UserEditModal(props) {
   return (
     <>
       <Modal show={show} onHide={() => setShow(false)}>
-        <Form className="mt-5" onSubmit={e => editProfileUser(e)}>
+        <Form  onSubmit={e => editProfileUser(e)}>
           <Modal.Header closeButton>
             <Modal.Title>Edit information</Modal.Title>
           </Modal.Header>
