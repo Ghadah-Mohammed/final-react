@@ -40,9 +40,9 @@ function OneCompany() {
           <img
             variant="top"
             src={company.avatar}
-            width="100%"
-            height="100%"
-            style={{ borderRadius: "10px", margin: "20px", height: "70vh", objectFit: "cover" }}
+            width="80%"
+            
+            style={{ borderRadius: "10px", margin: "20px", height: "60vh", objectFit: "cover" }}
           />
         </Col>
         <Col>
