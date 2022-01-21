@@ -118,7 +118,7 @@ function ProfileCompany(props) {
       
       <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Engineers</h3>
       
-      <Row md={5}>
+      <Row md={5}  >
       {profileCompany.engineer.map(engineer1 => (
         <EngineerItem engineer1={engineer1}/>
           ))}

@@ -19,7 +19,7 @@ function ProjectItem(props) {
 
   return (
     <>
-      <Card className="photoProject" border="light" style={{ maxWidth: "350px", margin: "28px" }}>
+      <Card className="photoProject" border="light" style={{ maxWidth: "350px", margin: "28px", marginLeft:"45px"}}>
         <Link to={`/project/${project._id}`} className="text-black" style={{ textDecorationLine: "none" }}>
           <Card.Img style={{ marginTop: "10px" }} src={project.photo[0]} height="220px" className="projectitem" />
           <Card.Body>

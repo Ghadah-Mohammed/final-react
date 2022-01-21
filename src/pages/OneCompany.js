@@ -27,7 +27,7 @@ function OneCompany() {
       {/* linear-gradient(rgba(0,0,0,0.8), */}
       <Row
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.507), rgba(255,255,255, 0.9)), url("${company.avatar}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.493), rgba(255,255,255, 0.5)), url("${company.avatar}")`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
