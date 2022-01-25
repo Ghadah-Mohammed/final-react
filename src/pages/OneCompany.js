@@ -7,7 +7,6 @@ import EngineerContext from "../Utils/EngineerContext"
 import AddComment from "../components/AddComment"
 import { RiDeleteBinLine } from "react-icons/ri"
 import { toast } from "react-toastify"
-import ProfileCompany from "./ProfileCompany"
 function OneCompany() {
   const { deleteComment, profileCompany } = useContext(EngineerContext)
   const { companyId } = useParams()
@@ -16,7 +15,7 @@ function OneCompany() {
   const company = companies.find(company => company._id === companyId)
 
   let liked = false
-  if (profile) liked = profile.likes.map(like => {})
+  // if (profile) liked = profile.likes.map(like => {})
   // if (profileCompany) liked = profileCompany.likes.map(like => {})
 
   console.log(liked)
@@ -50,14 +49,10 @@ function OneCompany() {
               {company.description}
             </p>
           </div>
-          {/* className="text-muted"  */}
+        
         </Col>
       </Row>
-      {/* <Row>
-        {company.project.map(project1=>(
-
-        ))}
-      </Row>*/}
+     
 
       <h2 style={{ margin: "30px", textAlign: "center" }}>Engineers in this company</h2>
       <Row md={7} style={{ display: "flex", justifyContent: "center" }}>

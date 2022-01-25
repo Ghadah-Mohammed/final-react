@@ -32,9 +32,9 @@ function OneProject() {
           alignItems: "center",
         }}
       >
-        <Col md="4">
+        {/* <Col md="4">
           <img variant="top" src={project.avatar} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
-        </Col>
+        </Col> */}
       </Row>
       <Row>
         <Col md="8" className="mx-auto" style={{margin:"40px"}}>

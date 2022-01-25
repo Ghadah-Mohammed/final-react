@@ -16,10 +16,9 @@ import { MdOutlinePostAdd } from "react-icons/md"
 import { RiDeleteBin5Line } from "react-icons/ri"
 import EngineerItem from "../components/EngineerItem"
 function ProfileCompany(props) {
-  const { offerId } = useParams
+  // const { offerId } = useParams
   const { offer } = props
-  const { profileCompany, companies, company, progressOffer, refusedOffer, cancel, deleteOffer, deleteEngineer } =
-    useContext(EngineerContext)
+  const { profileCompany } = useContext(EngineerContext)
   const [show, setShow] = useState(false)
   const [addshow, setaddshow] = useState(false)
   const [addengshow, setaddengShow] = useState(false)
@@ -41,13 +40,12 @@ function ProfileCompany(props) {
                 style={{ borderRadius: "10px", marginTop: "90px" }}
               />
             </Col>
-            <h3 >{profileCompany.name}</h3>
+            <h3>{profileCompany.name}</h3>
             <p>
               {profileCompany.email} <FaEdit onClick={() => setShow(true)} style={{}} />
             </p>
-            <div style={{width: "100vw",display:"flex",justifyContent:"center" }}>
-              
-            <p style={{width: "50%",  wordBreak: "break-word"}} >{profileCompany.description} </p>
+            <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
+              <p style={{ width: "50%", wordBreak: "break-word" }}>{profileCompany.description} </p>
             </div>
 
             <Col>
@@ -82,16 +80,14 @@ function ProfileCompany(props) {
           </Col> */}
       </Row>
       <Row>
-        <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Company projects</h3>
+        <h3 style={{ textAlign: "center", padding: "10px", fontWeight: "600" }}>Company projects</h3>
         {profileCompany.project.map(project => (
           <ProjectItem project={project} key={project._id} fromProfile={true} />
         ))}
       </Row>
-      <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>user offers</h3>
+      <h3 style={{ textAlign: "center", padding: "10px", fontWeight: "600" }}>user offers</h3>
 
-      <Row md={4} style={{backgroundColor: `rgba(227, 227, 235, 1)`,height:"60vh"}} >
-    
-    
+      <Row md={4} style={{ backgroundColor: `rgba(227, 227, 235, 1)`, height: "60vh" }}>
         {profileCompany.offer.map(offer1 => (
           <>
             <OfferItem offer={offer1} profileCompany={profileCompany} />
@@ -101,7 +97,7 @@ function ProfileCompany(props) {
                   <Button onClick={() => progressOffer(offer._id)}>progress</Button>
                   <Button onClick={() => refusedOffer(offer._id)}>Refuse</Button>
                 </>
-              ) : offer.status == "progress" ? (
+              ) : offer.status == "progress" ? (yyyyy
                 <>
                   <Button>completed</Button>
                   <Button onClick={() => cancel(offer._id)}> Cancel </Button>
@@ -115,14 +111,14 @@ function ProfileCompany(props) {
         ))}
         {/* </Col> */}
       </Row>
-      
-      <h3 style={{textAlign:"center",padding:"10px",fontWeight:"600"}}>Engineers</h3>
-      
-      <Row md={5}  >
-      {profileCompany.engineer.map(engineer1 => (
-        <EngineerItem engineer1={engineer1}/>
-          ))}
-          </Row>
+
+      <h3 style={{ textAlign: "center", padding: "10px", fontWeight: "600" }}>Engineers</h3>
+
+      <Row md={5}>
+        {profileCompany.engineer.map(engineer1 => (
+          <EngineerItem engineer1={engineer1} />
+        ))}
+      </Row>
 
       <CompanyEditModal show={show} setShow={setShow} company={profileCompany} />
       <ProjectAddModal show={addshow} setShow={setaddshow} />

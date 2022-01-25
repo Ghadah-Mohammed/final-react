@@ -27,7 +27,7 @@ function App() {
 
   //getCompanies
   const getCompanies = async () => {
-    const response = await axios("http://localhost:5000/api/company/verifiedCompanies")
+    const response = await axios("https://companies-api-1.herokuapp.com/api/company/verifiedCompanies")
     console.log(response.data)
     setCompanies(response.data)
   }
@@ -41,7 +41,7 @@ function App() {
 
   //get profile user
   const getProfile = async () => {
-    const response = await axios.get("http://localhost:5000/api/auth/getprofile", {
+    const response = await axios.get("https://companies-api-1.herokuapp.com/api/auth/getprofile", {
       headers: {
         Authorization: localStorage.tokenEngineer,
       },
@@ -61,7 +61,7 @@ function App() {
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
       }
-      await axios.put(`http://localhost:5000/api/auth/profile`, userBody, {
+      await axios.put(`https://companies-api-1.herokuapp.com/api/auth/profile`, userBody, {
         headers: {
           Authorization: localStorage.tokenEngineer,
         },
@@ -74,7 +74,7 @@ function App() {
   }
   //get project
   const getProjects = async () => {
-    const response = await axios.get("http://localhost:5000/api/project")
+    const response = await axios.get("https://companies-api-1.herokuapp.com/api/project")
     setProjects(response.data)
     console.log(response.data)
   }
@@ -91,13 +91,12 @@ function App() {
         email: form.elements.email.value,
         avatar: form.elements.avatar.value || undefined,
       }
-      await axios.post("http://localhost:5000/api/auth/signup", userBody)
+      await axios.post("https://companies-api-1.herokuapp.com/api/auth/signup", userBody)
       console.log("signup success")
 
       navigate("/login")
     } catch (error) {
       toast.error(error.response.data)
-
     }
   }
 
@@ -110,7 +109,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post("http://localhost:5000/api/auth/login", userBody)
+      const response = await axios.post("https://companies-api-1.herokuapp.com/api/auth/login", userBody)
       const token = response.data
       localStorage.tokenEngineer = token
       console.log("login success")
@@ -142,7 +141,7 @@ function App() {
         description: form.elements.description.value,
         avatar: form.elements.avatar.value,
       }
-      await axios.post("http://localhost:5000/api/company/signup", userBody)
+      await axios.post("https://companies-api-1.herokuapp.com/api/company/signup", userBody)
       console.log("signup success")
 
       navigate("/logincompany")
@@ -160,7 +159,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post("http://localhost:5000/api/company/login", userBody)
+      const response = await axios.post("https://companies-api-1.herokuapp.com/api/company/login", userBody)
       const token = response.data
       localStorage.tokenCompany = token
       console.log("login success")
@@ -181,7 +180,7 @@ function App() {
 
   //get profile Company
   const getProfileCompany = async () => {
-    const response = await axios.get("http://localhost:5000/api/company/profile", {
+    const response = await axios.get("https://companies-api-1.herokuapp.com/api/company/profile", {
       headers: {
         Authorization: localStorage.tokenCompany,
       },
@@ -205,7 +204,7 @@ function App() {
         avatar: form.elements.avatar.value,
         // photo: form.elements.photo.value.split(","),
       }
-      await axios.put(`http://localhost:5000/api/company/profile`, userBody, {
+      await axios.put(`https://companies-api-1.herokuapp.com/api/company/profile`, userBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -222,7 +221,7 @@ function App() {
   const likeProject = async projectId => {
     console.log(projectId)
     try {
-      const response = await axios.get(`http://localhost:5000/api/project/${projectId}/likes`, {
+      const response = await axios.get(`https://companies-api-1.herokuapp.com/api/project/${projectId}/likes`, {
         headers: {
           Authorization: localStorage.tokenEngineer,
         },
@@ -248,7 +247,7 @@ function App() {
         description: form.elements.description.value,
         photo: form.elements.photo.value.split(","),
       }
-      await axios.post(`http://localhost:5000/api/project/add-project`, projectBody, {
+      await axios.post(`https://companies-api-1.herokuapp.com/api/project/add-project`, projectBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -273,10 +272,9 @@ function App() {
         title: form.elements.title.value,
         photo: form.elements.photo.value,
         description: form.elements.description.value,
-         photo: form.elements.photo.value.split(","),
-
+        photo: form.elements.photo.value.split(","),
       }
-      await axios.put(`http://localhost:5000/api/project/${projectId}`, projectBody, {
+      await axios.put(`https://companies-api-1.herokuapp.com/api/project/${projectId}`, projectBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -295,7 +293,7 @@ function App() {
   //delete Project
   const deleteProject = async projectId => {
     try {
-      await axios.delete(`http://localhost:5000/api/project/${projectId}`, {
+      await axios.delete(`https://companies-api-1.herokuapp.com/api/project/${projectId}`, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -322,11 +320,15 @@ function App() {
         title: form.elements.title.value,
         description: form.elements.description.value,
       }
-      await axios.post(`http://localhost:5000/api/company/${companyId}/${projectId}/sendoffer`, offerBody, {
-        headers: {
-          Authorization: localStorage.tokenEngineer,
-        },
-      })
+      await axios.post(
+        `https://companies-api-1.herokuapp.com/api/company/${companyId}/${projectId}/sendoffer`,
+        offerBody,
+        {
+          headers: {
+            Authorization: localStorage.tokenEngineer,
+          },
+        }
+      )
       getProfile()
 
       toast.success("send offer")
@@ -345,7 +347,7 @@ function App() {
       const progressBody = {
         status: "progress",
       }
-      await axios.post(`http://localhost:5000/api/company/${offerId}/answeroffer`, progressBody, {
+      await axios.post(`https://companies-api-1.herokuapp.com/api/company/${offerId}/answeroffer`, progressBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -365,7 +367,7 @@ function App() {
       const refusedBody = {
         status: "refused",
       }
-      await axios.post(`http://localhost:5000/api/company/${offerId}/answeroffer`, refusedBody, {
+      await axios.post(`https://companies-api-1.herokuapp.com/api/company/${offerId}/answeroffer`, refusedBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -385,7 +387,7 @@ function App() {
       const cancelBody = {
         status: "cancel",
       }
-      await axios.post(`http://localhost:5000/api/company/${offerId}/answeroffer`, cancelBody, {
+      await axios.post(`https://companies-api-1.herokuapp.com/api/company/${offerId}/answeroffer`, cancelBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -402,7 +404,7 @@ function App() {
 
   const deleteOffer = async offerId => {
     try {
-      await axios.delete(`http://localhost:5000/api/company/offer/${offerId}`, {
+      await axios.delete(`https://companies-api-1.herokuapp.com/api/company/offer/${offerId}`, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -427,7 +429,7 @@ function App() {
         name: form.elements.name.value,
         photo: form.elements.photo.value,
       }
-      await axios.post(`http://localhost:5000/api/company/add-engineer`, engineerBody, {
+      await axios.post(`https://companies-api-1.herokuapp.com/api/company/add-engineer`, engineerBody, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -445,7 +447,7 @@ function App() {
   //delete engineer
   const deleteEngineer = async engineerId => {
     try {
-      await axios.delete(`http://localhost:5000/api/company/engineerdelet/${engineerId}`, {
+      await axios.delete(`https://companies-api-1.herokuapp.com/api/company/engineerdelet/${engineerId}`, {
         headers: {
           Authorization: localStorage.tokenCompany,
         },
@@ -469,7 +471,7 @@ function App() {
       }
 
       form.reset()
-      await axios.post(`http://localhost:5000/api/company/${companyId}/comments`, commentBody, {
+      await axios.post(`https://companies-api-1.herokuapp.com/api/company/${companyId}/comments`, commentBody, {
         headers: {
           Authorization: localStorage.tokenEngineer,
         },
@@ -486,7 +488,7 @@ function App() {
   //delet comment
   const deleteComment = async (companyId, commentId) => {
     console.log("hhh")
-    await axios.delete(`http://localhost:5000/api/company/${companyId}/comments/${commentId}`, {
+    await axios.delete(`https://companies-api-1.herokuapp.com/api/company/${companyId}/comments/${commentId}`, {
       headers: {
         Authorization: localStorage.tokenEngineer,
       },
