@@ -29,7 +29,7 @@ function NavbarItem() {
             <Link className="nav-link" to="/" style={{ textDecoration: "none"}}>
               Companies
             </Link>
-          <Link className="nav-link" className="nav-link" to="/projects" style={{ textDecoration: "none" }}>
+          <Link className="nav-link"  to="/projects" style={{ textDecoration: "none" }}>
             Projects
           </Link>
           </Nav>

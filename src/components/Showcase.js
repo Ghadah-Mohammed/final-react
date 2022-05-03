@@ -2,7 +2,7 @@ import { useContext, useRef } from "react"
 import { Col, Form, Row, Button } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
 import video4 from "../assets/video7.mp4"
-import photo3 from "../assets/photo3.jpg"
+import photo9 from "../assets/photo9.jpg"
 import styles from "./SectionOne.module.css"
 function Showcase() {
   // const companySection=useRef(null)
@@ -11,13 +11,13 @@ function Showcase() {
     <>
     <div className="contain">
       <div className="title">
-      <h1>Engineering company projects</h1>
+      {/* <h1>Engineering company projects</h1> */}
       {/* <p>jbhbhbhbhjbhubgvgvg v g v</p> */}
       {/* <Button variant="dark" className="me-4" onClick={goTowCompanySection}>
             Get started !
           </Button> */}
       </div>
-        <video
+        {/* <video
           className={styles.video4}
           style={{
             position:"relative",
@@ -30,12 +30,12 @@ function Showcase() {
           muted
           loop
         ></video>
-        <div className="overlay"></div>
+        <div className="overlay"></div> */}
      </div>
 
-      {/* <Col
+      <Col
         style={{
-          backgroundImage: `url("${photo3}")`,
+          backgroundImage: `url("${photo9}")`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -45,7 +45,7 @@ function Showcase() {
           justifyContent: "center",
           opacity: "0.9",
         }}
-      ></Col> */}
+      ></Col>
     </>
   )
 }
