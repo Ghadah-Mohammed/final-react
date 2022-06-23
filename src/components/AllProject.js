@@ -8,7 +8,7 @@ function AllProject() {
   return (
     <div style={{backgroundColor:"", paddingTop:150, minHeight:"100vh"}}>
       <div>
-        <h4 style={{marginLeft:"30px"}}>Explor Project</h4>
+        <h4 style={{marginLeft:"30px"}}>All Project</h4>
         {/* <h2>all project</h2> */}
 
         <Row>
