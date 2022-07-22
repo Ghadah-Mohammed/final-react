@@ -2,7 +2,7 @@ import { useContext, useRef } from "react"
 import { Col, Form, Row, Button } from "react-bootstrap"
 import EngineerContext from "../Utils/EngineerContext"
 import video4 from "../assets/video7.mp4"
-import photo9 from "../assets/photo9.jpg"
+import last1 from "../assets/last1.jpg"
 import styles from "./SectionOne.module.css"
 function Showcase() {
   // const companySection=useRef(null)
@@ -35,7 +35,7 @@ function Showcase() {
 
       <Col
         style={{
-          backgroundImage: `url("${photo9}")`,
+          backgroundImage: `url("${last1}")`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
